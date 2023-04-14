@@ -1,46 +1,52 @@
-h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  form {
-    margin: auto;
-    width: 50%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    background: url("");
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-    color: #666;
-  }
-  
-  input[type="text"], input[type="email"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  input[type="submit"] {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #3e8e41;
-  }
-  
-  input[type="submit"]:active {
-    background-color: #3e8e41;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3) inset;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+.container {
+  width: 400px;
+  margin: 150px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+button[type="submit"] {
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  background-color: palevioletred;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+button[type="submit"]:hover {
+  background-color: fuchsia;
+}
