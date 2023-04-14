@@ -3,6 +3,8 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    background:url(c_fond2_2.png);
+    background-color:blur(40%);
   }
   .container {
     width: 400px;
@@ -10,9 +12,10 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-top:225px;
+    opacity: 85%;
   }
-  
   form {
     display: flex;
     flex-direction: column;
@@ -34,19 +37,25 @@ body {
     border: none;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-top:10px;
   }
   
   button[type="submit"] {
     padding: 10px;
     border: none;
     border-radius: 25px;
-    background-color: palevioletred;
+    background-color: #E239DA;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition:.5s;
+    margin-top:25px;
   }
   
   button[type="submit"]:hover {
-    background-color: fuchsia;
+    background-color: #2ECC71;
+  }
+  p{
+    text-align:center;
   }
