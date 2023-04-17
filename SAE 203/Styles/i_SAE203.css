@@ -11,8 +11,8 @@ body {
   background-color:#212F3C;
   padding: 20px;
   border-radius: 50px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  margin-top:150px;
+  box-shadow: 0 0 100px rgba(255, 255, 255, 0.5);
+  margin-top:50px;
   opacity: 85%;
 }
 form {
@@ -37,7 +37,7 @@ input[type="password"] {
   padding: 10px;
   margin-bottom: 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin-top:10px;
   background-color:#2E4053;
@@ -61,6 +61,7 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #2ECC71;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 .p_c{
   text-align:center;
@@ -71,6 +72,7 @@ button[type="submit"]:hover {
   color:white;
   font-size:medium;
   margin-bottom:20px;
+  opacity:50%;
 }
 a:hover {
   color: #2ECC71;
@@ -80,3 +82,23 @@ a{
   transition:.5s;
   font-weight:bold;
 }
+input[type="email"],
+input[type="date"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin-top:10px;
+  background-color:#2E4053;
+  opacity:85%;
+  color:white;
+}
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover,
+input[type="date"]:hover{
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+
