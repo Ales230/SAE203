@@ -91,19 +91,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <div class="container">
-      <form>
-        <h2>Inscription</h2>
-        <label for="username">Nom :</label>
-        <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
-        <label for="username">Prénom :</label>
-        <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
-        <label for="username">Email :</label>
-        <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
-        <label for="username">Date de naissance :</label>
-        <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
-        <button type="submit">S'inscrire</button>
+      <!DOCTYPE html>
+<html>
+<head>
+	<title>Inscription</title>
+</head>
+<body>
+	<h2>Inscription</h2>
+	<form action="traitement.php" method="post">
+		<label for="email">Email :</label>
+		<input type="email" id="email" name="email" required><br>
+
+		<label for="nom">Nom :</label>
+		<input type="text" id="nom" name="nom" required><br>
+
+		<label for="prenom">Prénom :</label>
+		<input type="text" id="prenom" name="prenom" required><br>
+
+		<label for="date_naissance">Date de naissance :</label>
+		<input type="date" id="date_naissance" name="date_naissance" required><br>
+
+		<label for="mot_de_passe">Mot de passe :</label>
+		<input type="password" id="mot_de_passe" name="mot_de_passe" minlength="6" required><br>
+
+		<input type="submit" value="S'inscrire">
+	</form>
+</body>
+</html>
       </form>
     </div>
   </body>
