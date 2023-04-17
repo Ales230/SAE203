@@ -12,7 +12,7 @@ body {
     padding: 20px;
     border-radius: 50px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-top:200px;
+    margin-top:150px;
     opacity: 85%;
   }
   form {
@@ -65,6 +65,7 @@ body {
   .p_c{
     text-align:center;
     font-size:large;
+    margin-top:40px;
   }
   ::placeholder{
     color:white;

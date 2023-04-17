@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Connexion</title>
-    <link rel="stylesheet" href="Styles/SAE203.css">
+    <link rel="stylesheet" type="text/css" href="Styles/SAE203.css"> 
   </head>
   <body>
     <div class="container">
@@ -13,7 +13,7 @@
         <label for="password">Mot de passe :</label>
         <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
         <button type="submit">Se connecter</button>
-        <p class="p_c">Vous n'avez pas de compte ? Inscrivez vous <a href="">ici</a> !</p>
+        <p class="p_c">Vous n'avez pas de compte ?<a href=""> Inscrivez vous ici !</a></p>
       </form>
     </div>
   </body>
