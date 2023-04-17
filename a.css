@@ -1,0 +1,206 @@
+header {
+    background-color: #0077b6;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    
+
+  }
+  
+  .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .logo:hover {
+    color: #f1f1f1;
+  }
+  
+  .nav-menu {
+    display: flex;
+  }
+  
+  .nav-menu li {
+    list-style: none;
+    margin-left: 20px;
+  }
+  
+  .nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .nav-menu li a:hover {
+    color: #f1f1f1;
+  }
+  
+  .btn {
+    background-color: #f1f1f1;
+    color: #0077b6;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0077b6;
+    color: #fff;
+  }
+  /* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global styles */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #f1f1f1;
+  }
+  header {
+	scroll-behavior: smooth;	
+	background-color: #1B1B1B;
+	color: white;
+	padding: 20px;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	justify-content: flex-end!important;
+	align-items: center!important;
+  text-align: center!important;
+  position: fixed;
+}
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav ul li {
+	display: inline-block;
+ 
+}
+
+nav ul li a {
+	color: white;
+	padding: 10px;
+	text-decoration: none;
+  transition: .4s;
+  border-radius: 5px;
+  opacity: 80%;
+  font-size: 18px;
+	font-weight: 700;
+    text-align: center;
+
+  
+
+}
+
+nav ul li a:hover {
+	background-color: white;
+	color: black;
+	border-radius: 35px;
+}
+nav ul li a.active {
+  color: white;
+  background-color: #00D4FF;
+}
+/* CSS pour la section intro */
+#intro {
+    background-color: #f2f2f2;
+    padding: 60px;
+    text-align: center;
+  }
+  
+  #intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  #intro p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  /* CSS pour la section services */
+  #services {
+    background-color: #fff;
+    padding: 60px;
+    text-align: center;
+  }
+  
+  #services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  #services ul {
+    margin-top: 30px;
+    list-style: none;
+  }
+  
+  #services li {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  #services i {
+    margin-right: 10px;
+  }
+  
+  /* CSS pour la section reservation */
+  #reservation {
+    background-color: #f2f2f2;
+    padding: 60px;
+    text-align: center;
+  }
+  
+  #reservation h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  #reservation ol {
+    margin-top: 30px;
+    list-style: decimal;
+    text-align: left;
+    margin-left: 30px;
+  }
+  
+  #reservation ol li {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  #reservation p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+  
+  /* CSS pour le footer */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  footer p {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.6;
+  }
