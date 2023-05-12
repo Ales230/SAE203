@@ -14,6 +14,7 @@
 
     <header>
       <nav>
+        <img src = "Ressources/logouniv.png">
         <ul>
           <li><a href="http://localhost/index.html/SAE%20203/a_SAE203.php#">Accueil</a></li>
           <li><a href="#">Réservation</a></li>
@@ -32,7 +33,7 @@
         </p>
       </section>
       <section id="services">
-        <h2>Nos services</h2>
+        <h2>Notre stock disponible</h2>
         <ul>
           <li><i class="camera"></i><a href="#">Caméras et appareils photo</a></li>
           <li><i class="micro"></i><a href="#"> Micros et enregistreurs audio</a></li>
@@ -41,16 +42,17 @@
         </ul>
       </section>
       <section id="reservation">
-        <h2>Comment réserver du matériel</h2>
-        <ol>
-          <li>Connectez-vous à votre compte utilisateur</li>
-          <li><a href="#">Consultez</a> la liste des matériels disponibles</li>
-          <li>Sélectionnez le matériel que vous souhaitez réserver</li>
-          <li>Choisissez la date et l'heure de la réservation</li>
-          <li>Validez votre réservation</li>
-        </ol>
+        <h2>Comment réserver du matériel ?</h2>
+        <ul>
+          1. <a href="#">Connectez-vous</a> à votre compte utilisateur.<br>
+          <p style="margin-bottom: 20px;"> 2. <a href="#">Consultez</a> la liste des matériels disponibles.<br>
+          <p style="margin-bottom: 20px;"> 3. <a href="#">Sélectionnez</a> le matériel que vous souhaitez réserver.<br>
+          <p style="margin-bottom: 20px;"> 4. Choisissez la date et l'heure de la réservation.<br>
+          <p style="margin-bottom: 20px;"> 5. Validez votre réservation.
+        </ul>
         <p>
-          Si vous rencontrez des difficultés pour réserver du matériel, n'hésitez pas à contacter notre service d'assistance.
+        <p style="margin-top: 75px;">
+        <p style="font-weight:bold;"> Si vous rencontrez des difficultés pour réserver du matériel, n'hésitez pas à contacter notre service d'assistance.
         </p>
       </section>
     </main>

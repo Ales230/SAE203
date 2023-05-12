@@ -68,7 +68,6 @@ header {
     font-size: 16px;
     line-height: 1.5;
     background-color: #f0f0f0;
-    background:url(c_fond2_2.png);
   }
   header {
 	scroll-behavior: smooth;	
@@ -122,7 +121,10 @@ nav ul li a.active {
     background-color: #f2f2f2;
     padding: 100px;
     text-align: center;
-
+    background:url(fondaccueil.png);
+    color:white;
+    text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+    background-size: auto;
   }
   #intro h1{
     font-size:4rem;
@@ -180,14 +182,11 @@ nav ul li a.active {
     margin-bottom: 20px;
   }
   
-  #reservation ol {
+  #reservation ul {
     margin-top: 30px;
     list-style: decimal;
-    text-align: left;
+    text-align: center;
     margin-left: 30px;
-  }
-  
-  #reservation ol li {
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 10px;
@@ -196,7 +195,7 @@ nav ul li a.active {
   #reservation p {
     font-size: 1.2rem;
     line-height: 1.6;
-    margin-top: 20px;
+    margin-top: 30px;
   }
   
   /* CSS pour le footer */
@@ -220,4 +219,9 @@ nav ul li a.active {
   }
   a:hover {
     color: #2ECC71;
+  }
+  img{
+    width: 116px;
+    height: 27px;
+    float:left;
   }
