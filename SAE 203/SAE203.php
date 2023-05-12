@@ -8,8 +8,8 @@
     <div class="container">
       <form>
         <h1>Connectez-vous !</h1>
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
+        <label for="email">Adresse e-mail :</label>
+        <input type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail" required>
         <label for="password">Mot de passe :</label>
         <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
         <button type="submit">Se connecter</button>
