@@ -1,3 +1,13 @@
+<?php 
+      session_start();
+      require_once 'login.php'; // ajout connexion bdd 
+     // si la session existe pas soit si l'on est pas connecté on redirige
+      if(!isset($_SESSION['user'])){
+          header('Location:SAE203.php');
+          die();
+        }
+   
+?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
