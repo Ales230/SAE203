@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 17 mai 2023 à 13:14
+-- Généré le : ven. 19 mai 2023 à 22:47
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -30,10 +30,10 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `materiel`;
 CREATE TABLE IF NOT EXISTS `materiel` (
   `ID_materiel` int NOT NULL,
-  `Nom` varchar(50) NOT NULL,
-  `Reference` varchar(50) NOT NULL,
-  `Quantite` varchar(50) NOT NULL,
-  `Disponibilite` varchar(50) NOT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `reference` varchar(255) DEFAULT NULL,
+  `type` varchar(255) NOT NULL,
+  `description` text,
   PRIMARY KEY (`ID_materiel`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -84,11 +84,11 @@ INSERT INTO `role` (`ID_role`, `Nom_role`) VALUES
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `ID_utilisateur` int NOT NULL,
-  `Prenom` varchar(50) NOT NULL,
-  `Nom` varchar(50) NOT NULL,
-  `Email` varchar(50) NOT NULL,
-  `Date_naissance` date NOT NULL,
-  `Mot_de_passe` varchar(50) NOT NULL,
+  `prenom` varchar(255) DEFAULT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `datenaiss` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `ID_role` int NOT NULL,
   PRIMARY KEY (`ID_utilisateur`),
   KEY `utilisateur_role_FK` (`ID_role`)
@@ -98,8 +98,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`ID_utilisateur`, `Prenom`, `Nom`, `Email`, `Date_naissance`, `Mot_de_passe`, `ID_role`) VALUES
-(1, 'Alan', 'Leszek', 'dvzghrec@euzzze.com', '0000-00-00', 'tpmmi', 1);
+INSERT INTO `utilisateur` (`ID_utilisateur`, `prenom`, `nom`, `email`, `datenaiss`, `password`, `ID_role`) VALUES
+(393546, 'b', 'b', 'gerardaoste@gmail.com', '1671-12-15', '$2y$12$wxmk.HiHy61At5N4r74qBeSXTuHveTLVNX1lDUOJMSEMezLMGdaD.', 1),
+(655977, 'test', 'test', 'admin@admin.com', '1000-10-10', '$2y$12$hfL5XEK36TGnt4mxh8xeA.prCcyY34ZSs3dAquNgqm/h4jnAajVn2', 2);
 
 --
 -- Contraintes pour les tables déchargées
