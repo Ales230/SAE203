@@ -11,23 +11,33 @@ try {
     die(print_r($e));
 }
 
+// Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupération des données du formulaire
+    // Récupérer les données du formulaire
     $nom = $_POST['nom'];
     $type = $_POST['type'];
     $reference = $_POST['reference'];
     $description = $_POST['description'];
-
-    // Validation des données (exemple : vérification si les champs ne sont pas vides)
-    if (empty($nom) || empty($type) || empty($reference) || empty($description)) {
-        // Affichage d'un message d'erreur
-        echo "Veuillez remplir tous les champs obligatoires.";
+    $query = "INSERT INTO materiel (ID_materiel, nom, type, reference, description) VALUES (FLOOR(RAND() * 1000000), :nom, :type, :reference, :description)";
+    $stmt = $bdd->prepare($query);
+    $stmt->bindParam(':nom', $nom);
+    $stmt->bindParam(':type', $type);
+    $stmt->bindParam(':reference', $reference);
+    $stmt->bindParam(':description', $description);
+    if ($stmt->execute()) {
+        // L'insertion a réussi
+        $_SESSION['success_message'] = "Le matériel a été ajouté avec succès.";
     } else {
-        // Insertion du nouveau matériel dans la base de données
-        $insertion = $bdd->prepare('INSERT INTO materiel (ID_materiel, nom, type, reference, description) VALUES (FLOOR(RAND() * 1000000), ?, ?, ?, ?)');
-        $insertion->execute([$nom, $type, $reference, $description]);
-
+        // L'insertion a échoué
+        $_SESSION['error_message'] = "Erreur : Impossible d'ajouter le matériel.";
     }
+} else {
+    // Les données sont invalides
+    $_SESSION['error_message'] = "Erreur : Les données saisies sont incorrectes.";
 }
+
+// Rediriger vers la page "ajout_materiel.php"
+header('Location: ajoutmateriel.php');
+exit;
 
 ?>
