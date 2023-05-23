@@ -38,7 +38,7 @@ $matériels = $result->fetchAll(PDO::FETCH_ASSOC);
             <th>Type</th>
             <th>Référence</th>
             <th>Description</th>
-            <?php if ($role === 'Administrateur') { ?>
+            <?php if ($role === 'admin') { ?>
                 <th>Actions</th>
             <?php } ?>
             <?php foreach ($matériels as $matériel) { ?>
@@ -50,7 +50,7 @@ $matériels = $result->fetchAll(PDO::FETCH_ASSOC);
         <td><?php echo $matériel['type']; ?></td>
         <td><?php echo $matériel['reference']; ?></td>
         <td><?php echo $matériel['description']; ?></td>
-        <?php if ($role === 'Administrateur') { ?>
+        <?php if ($role === 'admin') { ?>
             <td>
                 <!-- Liens pour la modification et la suppression du matériel -->
                 <a href="modifier_materiel.php?id=<?php echo $matériel['id']; ?>">Modifier</a>
