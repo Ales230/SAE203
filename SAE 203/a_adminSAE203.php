@@ -20,7 +20,7 @@
           <li><a href="a_adminSAE203.php">Accueil</a></li>
           <li><a href="ajoutmateriel.php">Ajouter materiel</a></li>
           <li><a href="liste.php">Matériel disponible</a></li>
-          <li><a href="#">Mon compte</a></li>
+          <li><a href="reservation_liste.php">les reservations</a></li>
         </ul>
       </nav>
     </header>

@@ -32,12 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($id_materiel) || empty($date_debut) || empty($date_fin)) {
         $errors[] = "Tous les champs sont requis.";
     } else {
-        // Sauvegarder la demande de réservation en base de données
-        $id_utilisateur = $_SESSION['ID_utilisateur'];
-        $statut = ($role === '2') ? 'acceptee' : 'en attente';
-
         // Vérifier si le matériel est disponible pour les dates demandées
-        $query = "SELECT * FROM reserve WHERE ID_materiel = :id_materiel AND (:date_debut BETWEEN dateDebut AND dateFin OR :date_fin BETWEEN dateDebut AND dateFin)";
+        $query = "SELECT * FROM reserve WHERE ID_materiel = :id_materiel AND (:date_debut BETWEEN dateDebut AND dateFin OR :date_fin BETWEEN dateDebut AND dateFin )";
         $stmt = $bdd->prepare($query);
         $stmt->execute(array(
             'id_materiel' => $id_materiel,
@@ -49,25 +45,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($reservation_exists) {
             $errors[] = "Ce matériel est déjà réservé pour les dates sélectionnées.";
         } else {
-          // Sauvegarder la demande de réservation en base de données
-          $id_utilisateur = $_SESSION['ID_utilisateur'];
-          $statut = ($role === '2') ? 'acceptee' : 'en attente';
-      
-          $query = "INSERT INTO reserve (ID_utilisateur, ID_materiel, dateDebut, dateFin, statut)
-                    VALUES (:id_utilisateur, :id_materiel, :date_debut, :date_fin, :statut)";
-          $stmt = $bdd->prepare($query);
-          $stmt->execute(array(
-              'id_utilisateur' => $id_utilisateur,
-              'id_materiel' => $id_materiel,
-              'date_debut' => $date_debut,
-              'date_fin' => $date_fin,
-              'statut' => $statut
-          ));
-      
-          // Redirection vers la liste des réservations
-          header("Location: reservation_liste.php");
-          exit();
-      }
+            // Sauvegarder la demande de réservation en base de données
+            $id_utilisateur = isset($_SESSION['ID_utilisateur']) ? $_SESSION['ID_utilisateur'] : null;
+            $statut = ($role === '2') ? 'acceptee' : 'en attente';
+
+            $query = "INSERT INTO reserve (ID_utilisateur, ID_materiel, dateDebut, dateFin, statut)
+                      VALUES (:id_utilisateur, :id_materiel, :date_debut, :date_fin, :statut)";
+            $stmt = $bdd->prepare($query);
+            $stmt->execute(array(
+                'id_utilisateur' => $id_utilisateur,
+                'id_materiel' => $id_materiel,
+                'date_debut' => $date_debut,
+                'date_fin' => $date_fin,
+                'statut' => $statut
+            ));
+
+            // Redirection vers la liste des réservations
+            header("Location: reservation_liste.php");
+            exit();
+        }
     }
 }
 ?>

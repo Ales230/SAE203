@@ -20,7 +20,7 @@
           <li><a href="a_SAE203.php">Accueil</a></li>
           <li><a href="reservation.php">Réservation</a></li>
           <li><a href="liste.php">Matériel disponible</a></li>
-          <li><a href="#">Mon compte</a></li>
+          <li><a href="reservation_liste.php">Mes reservations</a></li>
         </ul>
       </nav>
     </header>
