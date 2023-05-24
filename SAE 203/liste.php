@@ -13,7 +13,7 @@ try {
 }
 
 // Vérifier le rôle de l'utilisateur
-$role = isset($_SESSION['role']) ? $_SESSION['role'] : 'Etudiant';
+$role = isset($_SESSION['ID_role']) ? $_SESSION['ID_role'] : 'utilisateur';
 
 // Récupérer les matériels depuis la base de données
 $query = "SELECT * FROM materiel";
@@ -30,6 +30,7 @@ $matériels = $result->fetchAll(PDO::FETCH_ASSOC);
     <title>Liste des matériels</title>
 </head>
 <body>
+
     <h1>Liste des matériels</h1>
 
     <table>
@@ -38,27 +39,27 @@ $matériels = $result->fetchAll(PDO::FETCH_ASSOC);
             <th>Type</th>
             <th>Référence</th>
             <th>Description</th>
-            <?php if ($role === 'admin') { ?>
+            <?php if ($role === '2') { ?> <!-- Vérifier si l'utilisateur a le rôle d'administrateur -->
                 <th>Actions</th>
             <?php } ?>
-            <?php foreach ($matériels as $matériel) { ?>
-    <tr>
-        <td>
-                <?php echo $matériel['nom']; ?>
-            </a>
-        </td>
-        <td><?php echo $matériel['type']; ?></td>
-        <td><?php echo $matériel['reference']; ?></td>
-        <td><?php echo $matériel['description']; ?></td>
-        <?php if ($role === 'admin') { ?>
-            <td>
-                <!-- Liens pour la modification et la suppression du matériel -->
-                <a href="modifier_materiel.php?id=<?php echo $matériel['id']; ?>">Modifier</a>
-                <a href="supprimer_materiel.php?id=<?php echo $matériel['id']; ?>">Supprimer</a>
-            </td>
+        </tr>
+        <?php foreach ($matériels as $matériel) { ?>
+            <tr>
+                <td><?php echo $matériel['nom']; ?></td>
+                <td><?php echo $matériel['type']; ?></td>
+                <td><?php echo $matériel['reference']; ?></td>
+                <td><?php echo $matériel['description']; ?></td>
+                <?php if ($role === '2') { ?> <!-- Vérifier si l'utilisateur a le rôle d'administrateur -->
+                    <td>
+                        <!-- Liens pour la modification et la suppression du matériel -->
+                        <a href="modification_materiel.php?id=<?php echo $matériel['ID_materiel']; ?>">Modifier</a>
+                        <a href="supprimer_materiel.php?id=<?php echo $matériel['ID_materiel']; ?>">Supprimer</a>
+                    </td>
+                <?php } ?>
+            </tr>
         <?php } ?>
-    </tr>
-<?php } ?>
     </table>
+    <a href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+
 </body>
 </html>

@@ -19,9 +19,12 @@ if (isset($_SESSION['error_message'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Styles/.css" />
+
   <title>Ajout de nouveau matériel</title>
 </head>
 <body>
+
   <h1>Ajout de nouveau matériel</h1>
   
   <form action="traitement_materiel.php" method="POST">
@@ -47,5 +50,7 @@ if (isset($_SESSION['error_message'])) {
 
     <input type="submit" value="Ajouter">
   </form>
+  <a href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+
 </body>
 </html>
