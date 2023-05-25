@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 25 mai 2023 à 07:16
+-- Généré le : jeu. 25 mai 2023 à 07:22
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -30,10 +30,10 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `materiel`;
 CREATE TABLE IF NOT EXISTS `materiel` (
   `ID_materiel` int NOT NULL,
-  `nom` varchar(255) DEFAULT NULL,
-  `reference` varchar(255) DEFAULT NULL,
-  `type` varchar(255) NOT NULL,
-  `description` text,
+  `nom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reference` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`ID_materiel`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
