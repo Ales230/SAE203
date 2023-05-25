@@ -73,11 +73,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/reservation.css" />
     <title>Demande de réservation</title>
 </head>
 <body>
-
-    <h1>Demande de réservation</h1>
+<header>
+<nav>
+<img src = "Ressources/logouniv.png">
+<ul>
+          <li><a href="a_SAE203.php">Accueil</a></li>
+          <li><a id="reserver" href="reservation.php">Réserver</a></li>
+          <li><a href="liste.php">Matériel disponible</a></li>
+          <li><a href="reservation_liste.php">Mes reservations</a></li>
+        </ul>
+      </nav>
+    </header>
+    
 
     <?php if (!empty($errors)) { ?>
         <div>
@@ -88,10 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </ul>
         </div>
     <?php } ?>
-
+    <div class="container">
     <form method="POST" action="">
+    <h1>Demande de réservation</h1>
         <label for="materiel">Matériel :</label>
-        <select id="materiel" name="materiel">
+        <select type="text"id="materiel" name="materiel">
             <?php foreach ($matériels as $matériel) { ?>
                 <option value="<?php echo $matériel['ID_materiel']; ?>"><?php echo $matériel['nom']; ?></option>
             <?php } ?>
@@ -105,7 +117,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br>
         <input type="submit" value="Réserver">
     </form>
+            </div>
+    
+      
 
-    <a href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    
+    <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    <footer>
+      <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
+    </footer>
 </body>
 </html>

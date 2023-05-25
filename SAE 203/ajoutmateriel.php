@@ -19,12 +19,24 @@ if (isset($_SESSION['error_message'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="Styles/.css" />
+  <link rel="stylesheet" href="styles/ajoutmateriel.css" />
 
   <title>Ajout de nouveau matériel</title>
 </head>
 <body>
-
+<header>
+      <nav>
+        <img src = "Ressources/logouniv.png">
+        <ul>
+          <li><a href="a_adminSAE203.php">Accueil</a></li>
+          <li><a href="reservation.php">Réserver</a></li>
+          
+          <li><a href="liste.php">Matériel disponible</a></li>
+          <li><a href="reservation_liste.php">Mes reservations</a></li>
+          <li><a id="ajout"href="ajoutmateriel.php">Ajout de matériel</a></li>
+        </ul>
+      </nav>
+    </header>
   <h1>Ajout de nouveau matériel</h1>
   
   <form action="traitement_materiel.php" method="POST">
@@ -50,7 +62,9 @@ if (isset($_SESSION['error_message'])) {
 
     <input type="submit" value="Ajouter">
   </form>
-  <a href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
-
+  <a id="back" href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+  <footer>
+      <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
+    </footer>
 </body>
 </html>

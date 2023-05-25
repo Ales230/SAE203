@@ -121,10 +121,12 @@ background-color: #00D4FF;
   background-color: #f2f2f2;
   padding: 100px;
   text-align: center;
-  background:url(fondaccueil.png);
+  background:url(fondaccueil.png),no-repeat;
+  background-repeat: no-repeat;
   color:white;
   text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
-  background-size: auto;
+  background-size: 1550px 1550px;
+  background-position-x: center;
 }
 #intro h1{
   font-size:4rem;
@@ -134,7 +136,7 @@ background-color: #00D4FF;
   margin-top:25px;
 }
 #intro h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 20px;
 }
 
@@ -217,11 +219,17 @@ a{
   font-weight:bold;
   transition:.5s;
 }
-a:hover {
+a:hover{
   color: #2ECC71;
 }
 img{
   width: 116px;
   height: 27px;
   float:left;
+}
+#accueil{
+  color:#2ECC71;
+}
+.tm{
+  font-weight:bold;
 }

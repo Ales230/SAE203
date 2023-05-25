@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="Styles/a_SAE203.css" />
+    <link rel="stylesheet" href="styles/a_SAE203.css" />
     <title>Université Gustave Eiffel : Emprunt de matériel audiovisuel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-KXe4Y+xx4msPQsYm0fZJgWK+O1SbHUCRSBxTiyJXnwLu0Nkf+zcYvJ/d1N3+vq3H8WtMk33t/9gJxBzXcvL//w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -17,10 +17,13 @@
       <nav>
         <img src = "Ressources/logouniv.png">
         <ul>
-          <li><a href="a_adminSAE203.php">Accueil</a></li>
-          <li><a href="ajoutmateriel.php">Ajouter materiel</a></li>
+        <li><a id="accueil"href="a_SAE203.php">Accueil</a></li>
+          <li><a href="reservation.php">Réserver</a></li>
+          
           <li><a href="liste.php">Matériel disponible</a></li>
-          <li><a href="reservation_liste.php">les reservations</a></li>
+          <li><a href="reservation_liste.php">Mes reservations</a></li>
+          <li><a href="ajoutmateriel.php">Ajout de matériel</a></li>
+          <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
         </ul>
       </nav>
     </header>
@@ -36,10 +39,9 @@
       <section id="services">
         <h2>Notre stock disponible</h2>
         <ul>
-          <li><i class="camera"></i><a href="#">Caméras et appareils photo</a></li>
-          <li><i class="micro"></i><a href="#"> Micros et enregistreurs audio</a></li>
-          <li><i class="ecran"></i><a href="#"> Écrans et vidéoprojecteurs</a></li>
-          <li><i class="laptop"></i><a href="#"> Ordinateurs portables et tablettes</a></li>
+        <li><i class="micro"></i><p class=tm>Audio : </p><a href="liste.php">Consulter le matériel audio</a></li>
+          <li><i class="micro"></i><p class=tm>Vidéo : </p><a href="liste.php">Consulter le matériel vidéo</a></li>
+          <li><i class="autres"></i><p class=tm>Autres : </p><a href="liste.php">Consulter les accessoires audiovisuels</a></li>
         </ul>
       </section>
       <section id="reservation">

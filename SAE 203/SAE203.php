@@ -37,7 +37,7 @@
 <html>
   <head>
     <title>Connexion</title>
-    <link rel="stylesheet" type="text/css" href="Styles/SAE203.css"> 
+    <link rel="stylesheet" type="text/css" href="styles/SAE203.css"> 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
