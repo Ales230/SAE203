@@ -27,9 +27,21 @@ $matériels = $result->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/liste.css">
     <title>Liste des matériels</title>
 </head>
 <body>
+<header>
+<nav>
+<img src = "Ressources/logouniv.png">
+<ul>
+          <li><a href="a_SAE203.php">Accueil</a></li>
+          <li><a id="reserver" href="reservation.php">Réserver</a></li>
+          <li><a href="liste.php">Matériel disponible</a></li>
+          <li><a href="reservation_liste.php">Mes reservations</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <h1>Liste des matériels</h1>
 
@@ -60,6 +72,8 @@ $matériels = $result->fetchAll(PDO::FETCH_ASSOC);
         <?php } ?>
     </table>
     <a href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
-
+    <footer>
+      <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
+    </footer>
 </body>
 </html>

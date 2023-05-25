@@ -49,6 +49,7 @@ if (isset($_SESSION['error_message'])) {
       <option value="">Sélectionner un type</option>
       <option value="audio">Audio</option>
       <option value="video">Video</option>
+      <option value="video">Autre type de matériel</option>
     </select>
     <br>
 

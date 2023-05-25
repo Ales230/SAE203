@@ -122,7 +122,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color:#212F3C ;
+  background-color:#E239DA ;
   border-radius:35px;
   color: white;
 	
@@ -385,8 +385,7 @@ nav ul li a.active {
     margin-bottom:40px;
   }
 #back {
-    margin-left:725px;
-    margin-bottom:25px !important;
+    margin-left:200px;
 }
 #reserver{
   color:#2ECC71;

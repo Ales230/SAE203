@@ -7,10 +7,10 @@ body {
   background-repeat: no-repeat;
 }
 .container {
-  width: 500px;
-  margin: 400px auto;
+  width: 500px !important;
+  margin: 400px !important auto;
   background-color:#212F3C;
-  padding: 20px;
+  padding: 20px !important;
   border-radius: 50px;
   box-shadow: 0 0 100px rgba(255, 255, 255, 0.5);
   margin-top:50px;
