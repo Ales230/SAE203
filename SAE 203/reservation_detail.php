@@ -42,6 +42,15 @@ if (!$reservation) {
 
 // Vérifier le rôle de l'utilisateur
 $role = $_SESSION['ID_role'];
+function afficherRoleNavigation($role)
+{
+    if ($role === '2') {
+        echo 'Connecté en tant que administrateur';
+    } elseif ($role === '1') {
+      echo 'Connecté en tant que étudiant';
+        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,9 +58,23 @@ $role = $_SESSION['ID_role'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/reservation_detail.css"/>
     <title>Détails de la réservation</title>
 </head>
 <body>
+<header>
+      <nav>
+        <img src = "Ressources/logouniv.png">
+        <ul>
+          <li><a id="accueil"href="a_SAE203.php">Accueil</a></li>
+          <li><a href="reservation.php">Réserver</a></li>
+          <li><a href="liste.php">Matériel disponible</a></li>
+          <li><a href="reservation_liste.php">Mes reservations</a></li>
+          <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
+        </ul>
+      </nav>
+      <p class="role"><?php afficherRoleNavigation($role); ?></p>
+    </header>
     <h1>Détails de la réservation</h1>
 
     <table>
@@ -91,5 +114,8 @@ $role = $_SESSION['ID_role'];
     <?php } ?>
 
     <a href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    <footer>
+      <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
+    </footer>
 </body>
 </html>

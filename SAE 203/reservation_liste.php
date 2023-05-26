@@ -37,6 +37,15 @@ if ($_SESSION['ID_role'] !== '2') {
 
 $stmt->execute();
 $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+function afficherRoleNavigation($role)
+{
+    if ($role === '2') {
+        echo 'Connecté en tant que administrateur';
+    } elseif ($role === '1') {
+      echo 'Connecté en tant que étudiant';
+        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,12 +53,28 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/reservation_liste.css" />
     <title>Liste des réservations</title>
 </head>
 <body>
-    <h1>Liste des réservations</h1>
+<header>
+      <nav>
+        <img src = "ressources/logouniv.png">
+        <ul>
+          <li><a href="a_SAE203.php">Accueil</a></li>
+          <li><a href="reservation.php">Réserver</a></li>
+          <li><a href="liste.php">Matériel disponible</a></li>
+          <li><a id="accueil" href="reservation_liste.php">Mes reservations</a></li>
+          <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
+        </ul>
+      </nav>
+      <p class="role"><?php afficherRoleNavigation($role); ?></p>
+    </header>
+    <div id="div_tab">
+    
 
     <?php if ($_SESSION['ID_role'] === '2') { ?>
+        <h1>Liste des réservations</h1>
         <h2>Demandes de réservation en attente</h2>
         <table>
             <thead>
@@ -81,6 +106,7 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php } ?>
             </tbody>
         </table>
+                    </div>
 
         <h2>Réservations acceptées ou rejetées</h2>
         <table>
@@ -112,6 +138,7 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <?php } ?>
                 <?php } ?>
             </tbody>
+                    
         </table>
     <?php } else { ?>
         <table>
@@ -143,5 +170,8 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php } ?>
 
     <a href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    <footer>
+      <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
+    </footer>
 </body>
 </html>
