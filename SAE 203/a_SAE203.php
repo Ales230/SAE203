@@ -20,6 +20,15 @@ try {
 } catch (Exception $e) {
     die(print_r($e));
 }
+function afficherRoleNavigation($role)
+{
+    if ($role === '2') {
+        echo 'Connecté en tant que administrateur';
+    } elseif ($role === '1') {
+      echo 'Connecté en tant que étudiant';
+        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -46,6 +55,7 @@ try {
           <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
         </ul>
       </nav>
+      <p class="role"><?php afficherRoleNavigation($role); ?></p>
     </header>
     <main>
       <section id="intro">

@@ -20,6 +20,18 @@ try {
 } catch (Exception $e) {
     die(print_r($e));
 }
+
+function afficherRoleNavigation($role)
+{
+    if ($role === '2') {
+        echo 'Connecté en tant que administrateur';
+    } elseif ($role === '1') {
+      echo 'Connecté en tant que étudiant';
+        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,7 +39,7 @@ try {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="styles/a_SAE203.css" />
+    <link rel="stylesheet" href="Styles/a_SAE203.css" />
     <title>Université Gustave Eiffel : Emprunt de matériel audiovisuel</title>
     <link rel="stylesheet" integrity="sha512-KXe4Y+xx4msPQsYm0fZJgWK+O1SbHUCRSBxTiyJXnwLu0Nkf+zcYvJ/d1N3+vq3H8WtMk33t/9gJxBzXcvL//w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -35,21 +47,25 @@ try {
   </head>
   <body>
 
-    <header>
-      <nav>
-        <img src = "Ressources/logouniv.png">
-        <ul>
-        <li><a id="accueil"href="a_SAE203.php">Accueil</a></li>
-          <li><a href="reservation.php">Réserver</a></li>
-          
-          <li><a href="liste.php">Matériel disponible</a></li>
-          <li><a href="reservation_liste.php">Mes reservations</a></li>
-          <li><a href="ajoutmateriel.php">Ajout de matériel</a></li>
-          <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
-          </ul>
-      </nav>
-    </header>
-    <main>
+  <header>
+  <nav>
+    <img src="Ressources/logouniv.png">
+    <ul>
+      <li><a id="accueil" href="a_SAE203.php">Accueil</a></li>
+      <li><a href="reservation.php">Réserver</a></li>
+
+      <li><a href="liste.php">Matériel disponible</a></li>
+      <li><a href="reservation_liste.php">Mes reservations</a></li>
+      
+      <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
+    
+    </ul>
+    
+  </nav>
+  <p class="role"><?php afficherRoleNavigation($role); ?></p>
+</header>
+
+   
       <section id="intro">
         <h1>Bienvenue sur le site d'emprunt de matériel audiovisuel de l'IUT de Meaux</h1>
         <p class="p_titre">
@@ -80,7 +96,7 @@ try {
         <p style="font-weight:bold;"> Si vous rencontrez des difficultés pour réserver du matériel, n'hésitez pas à contacter notre service d'assistance.
         </p>
       </section>
-    </main>
+  
     <footer>
       <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
     </footer>
