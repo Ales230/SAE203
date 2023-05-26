@@ -15,7 +15,7 @@ try {
 // Vérifier si l'utilisateur a le rôle d'administrateur
 if ($_SESSION['ID_role'] !== '2') {
     // Rediriger l'utilisateur vers une autre page s'il n'a pas le rôle d'administrateur
-    header('Location: accueil.php');
+    header('Location: SAE203.php');
     exit();
 }
 

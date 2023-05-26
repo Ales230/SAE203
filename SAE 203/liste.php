@@ -1,5 +1,15 @@
 <?php
+
 session_start(); // Démarrage de la session
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['ID_role'])) {
+    header("Location: SAE203.php"); // Redirection vers la page de connexion
+    exit();
+}
+
+// Récupérer le rôle de l'utilisateur
+$role = $_SESSION['ID_role'];
 
 // Connexion à la base de données
 try {

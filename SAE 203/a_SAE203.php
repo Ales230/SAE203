@@ -1,4 +1,26 @@
+<?php
+session_start(); // Démarrage de la session
 
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['ID_role'])) {
+    header("Location: SAE203.php"); // Redirection vers la page de connexion
+    exit();
+}
+
+// Récupérer le rôle de l'utilisateur
+$role = $_SESSION['ID_role'];
+
+// Connexion à la base de données
+try {
+    $bdd = new PDO(
+        'mysql:host=localhost;dbname=location_materiel;charset=utf8',
+        'root'
+    );
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (Exception $e) {
+    die(print_r($e));
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -21,6 +43,7 @@
           <li><a href="reservation.php">Réserver</a></li>
           <li><a href="liste.php">Matériel disponible</a></li>
           <li><a href="reservation_liste.php">Mes reservations</a></li>
+          <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
         </ul>
       </nav>
     </header>

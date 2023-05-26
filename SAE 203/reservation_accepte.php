@@ -9,7 +9,7 @@ if (!isset($_SESSION['ID_role'])) {
 
 // Vérifier si l'ID de réservation est spécifié dans l'URL
 if (!isset($_GET['id'])) {
-    header("Location: index.php"); // Redirection vers la page principale si l'ID de réservation n'est pas spécifié
+    header("Location: SAE203.php"); // Redirection vers la page principale si l'ID de réservation n'est pas spécifié
     exit();
 }
 

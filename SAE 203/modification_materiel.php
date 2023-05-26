@@ -97,14 +97,11 @@ if (isset($_GET['id'])) {
 
 
 <?php
-    } else {
-        // Rediriger l'utilisateur vers une autre page si le matériel n'existe pas
-        header('Location: accueil.php');
-        exit();
+
     }
 } else {
     // Rediriger l'utilisateur vers une autre page si l'identifiant du matériel n'est pas spécifié
-    header('Location: accueil.php');
+    header('Location: SAE203.php');
     exit();
 }
 ?>
