@@ -223,13 +223,14 @@ header {
 	scroll-behavior: smooth;	
   background-color:#212F3C;
   opacity:100%;
-	padding: 20px;
+	padding: 10px;
 	top: 0;
 	width: 100%;
 	z-index: 1;
 	justify-content: flex-end!important;
 	align-items: center!important;
   text-align: center!important;
+  position:fixed;
 }
 nav ul {
 	list-style: none;
@@ -362,7 +363,7 @@ nav ul li a.active {
   }
   
   footer p {
-    font-size: 1rem;
+    font-size: 16px;
     margin: 0;
     line-height: 1.6;
   }
@@ -406,7 +407,7 @@ body {
   padding: 20px;
   border-radius: 50px;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
-  margin-top:100px;
+  margin-top:200px;
   opacity: 85%;
 }
 form {
@@ -483,5 +484,5 @@ box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 .role{
   color:#ACAAAA;
-  line-height: 40px;
+  line-height: 20px;
 }

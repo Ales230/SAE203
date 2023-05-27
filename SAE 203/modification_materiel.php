@@ -66,6 +66,13 @@ if (isset($_GET['id'])) {
                 // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
             }
         }
+        // Récupérer le rôle de l'utilisateur
+$role = $_SESSION['ID_role'];
+
+$estAdministrateur = false; // Par défaut, l'utilisateur n'est pas administrateur
+if ($role === '2') {
+    $estAdministrateur = true;
+}
         ?>
 
 <!DOCTYPE html>
@@ -84,6 +91,12 @@ if (isset($_GET['id'])) {
           <li><a href="a_SAE203.php">Accueil</a></li>
           <li><a href="reservation.php">Réserver</a></li>
           <li><a id="liste" href="liste.php">Matériel disponible</a></li>
+          <?php
+          // Afficher le lien "Ajouter du matériel" uniquement si l'utilisateur est un administrateur
+          if ($estAdministrateur) {
+              echo '<li><a href="ajoutmateriel.php">Ajouter du matériel</a></li>';
+          }
+          ?>
           <li><a href="reservation_liste.php">Mes reservations</a></li>
           <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
         </ul>

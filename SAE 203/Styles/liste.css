@@ -1,22 +1,24 @@
 table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-left: auto;
+  width: 75%;
+  margin-left: auto;
     margin-right: auto;
-    margin-top:100px;
+  
+  
+  margin-bottom:50px;
+  margin-top:50px;
 }
 
 th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+  padding: 24px;
+  text-align: center;
+  border: 1px solid #ddd;
 }
 
 th {
     background-color: #f2f2f2;
 }
 
-tr:hover {
+td:hover {
     background-color: lightgrey;
 }
 header {
@@ -273,4 +275,11 @@ header {
   }
   #suppr{
     color:red;
+  }
+  h1{
+    color: #333;
+    margin-top:150px;
+    text-align:center;
+    
+   
   }

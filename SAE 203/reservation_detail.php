@@ -51,6 +51,13 @@ function afficherRoleNavigation($role)
         // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
     }
 }
+// Récupérer le rôle de l'utilisateur
+$role = $_SESSION['ID_role'];
+
+$estAdministrateur = false; // Par défaut, l'utilisateur n'est pas administrateur
+if ($role === '2') {
+    $estAdministrateur = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,15 +73,22 @@ function afficherRoleNavigation($role)
       <nav>
         <img src = "Ressources/logouniv.png">
         <ul>
-          <li><a id="accueil"href="a_SAE203.php">Accueil</a></li>
+          <li><a href="a_SAE203.php">Accueil</a></li>
           <li><a href="reservation.php">Réserver</a></li>
           <li><a href="liste.php">Matériel disponible</a></li>
-          <li><a href="reservation_liste.php">Mes reservations</a></li>
+          <?php
+          // Afficher le lien "Ajouter du matériel" uniquement si l'utilisateur est un administrateur
+          if ($estAdministrateur) {
+              echo '<li><a href="ajoutmateriel.php">Ajouter du matériel</a></li>';
+          }
+          ?>
+          <li><a id="accueil"href="reservation_liste.php">Mes reservations</a></li>
           <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
         </ul>
       </nav>
       <p class="role"><?php afficherRoleNavigation($role); ?></p>
     </header>
+    <div class="container">
     <h1>Détails de la réservation</h1>
 
     <table>
@@ -103,17 +117,18 @@ function afficherRoleNavigation($role)
             <td><?php echo $reservation['statut']; ?></td>
         </tr>
     </table>
-
+</div>
+<div>
     <?php if ($role == '2') { // Afficher les actions pour l'administrateur ?>
         <?php if ($reservation['statut'] == 'en attente') { ?>
-            <a href="reservation_accepte.php?id=<?php echo $reservation['ID_reservation']; ?>">Accepter</a>
-            <a href="reservation_rejete.php?id=<?php echo $reservation['ID_reservation']; ?>">Rejeter</a>
+            <a id="accepter"href="reservation_accepte.php?id=<?php echo $reservation['ID_reservation']; ?>">Accepter</a>
+            <a id="rejeter"href="reservation_rejete.php?id=<?php echo $reservation['ID_reservation']; ?>">Rejeter</a>
         <?php } ?>
     <?php } else { // Afficher le statut pour l'utilisateur ?>
-        <p>Statut de la demande : <?php echo $reservation['statut']; ?></p>
+        <p id="statut">Statut de la demande : <?php echo $reservation['statut']; ?></p>
     <?php } ?>
-
-    <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    </div>
+    <a href="javascript:history.go(-1)"id="back">Retour</a> <!-- Lien pour revenir à la page précédente -->
     <footer>
       <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
     </footer>

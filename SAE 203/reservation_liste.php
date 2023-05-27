@@ -46,6 +46,13 @@ function afficherRoleNavigation($role)
         // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
     }
 }
+// Récupérer le rôle de l'utilisateur
+$role = $_SESSION['ID_role'];
+
+$estAdministrateur = false; // Par défaut, l'utilisateur n'est pas administrateur
+if ($role === '2') {
+    $estAdministrateur = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +71,12 @@ function afficherRoleNavigation($role)
           <li><a href="a_SAE203.php">Accueil</a></li>
           <li><a href="reservation.php">Réserver</a></li>
           <li><a href="liste.php">Matériel disponible</a></li>
+          <?php
+          // Afficher le lien "Ajouter du matériel" uniquement si l'utilisateur est un administrateur
+          if ($estAdministrateur) {
+              echo '<li><a href="ajoutmateriel.php">Ajouter du matériel</a></li>';
+          }
+          ?>
           <li><a id="accueil" href="reservation_liste.php">Mes reservations</a></li>
           <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
         </ul>
@@ -72,10 +85,15 @@ function afficherRoleNavigation($role)
     </header>
     <div id="div_tab">
     
-
+    
+    <?php
+          // Afficher le lien "Ajouter du matériel" uniquement si l'utilisateur est un administrateur
+          if ($estAdministrateur) {
+              echo '<h1>Liste des réservations en attente</h1>';
+          }
+          ?>
     <?php if ($_SESSION['ID_role'] === '2') { ?>
-        <h1>Liste des réservations</h1>
-        <h2>Demandes de réservation en attente</h2>
+        
         <table>
             <thead>
                 <tr>
@@ -85,7 +103,7 @@ function afficherRoleNavigation($role)
                     <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Statut</th>
-                    <th>Action</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -108,7 +126,8 @@ function afficherRoleNavigation($role)
         </table>
                     </div>
 
-        <h2>Réservations acceptées ou rejetées</h2>
+        <h1>Liste de mes réservations</h1>
+        
         <table>
             <thead>
                 <tr>
@@ -118,7 +137,7 @@ function afficherRoleNavigation($role)
                     <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Statut</th>
-                    <th>Action</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -149,7 +168,7 @@ function afficherRoleNavigation($role)
                     <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Statut</th>
-                    <th>Action</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>

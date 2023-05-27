@@ -88,15 +88,15 @@ function afficherRoleNavigation($role)
       <section id="reservation">
         <h2>Comment réserver du matériel ?</h2>
         <ul>
-          1. <a href="#">Connectez-vous</a> à votre compte utilisateur.<br>
-          <p style="margin-bottom: 20px;"> 2. <a href="#">Consultez</a> la liste des matériels disponibles.<br>
-          <p style="margin-bottom: 20px;"> 3. <a href="#">Sélectionnez</a> le matériel que vous souhaitez réserver.<br>
+          1. <a href="SAE203.php">Connectez-vous</a> à votre compte utilisateur.<br>
+          <p style="margin-bottom: 20px;"> 2. <a href="liste.php">Consultez</a> la liste des matériels disponibles.<br>
+          <p style="margin-bottom: 20px;"> 3. <a href="reservation.php">Sélectionnez</a> le matériel que vous souhaitez réserver.<br>
           <p style="margin-bottom: 20px;"> 4. Choisissez la date et l'heure de la réservation.<br>
           <p style="margin-bottom: 20px;"> 5. Validez votre réservation.
         </ul>
         <p>
         <p style="margin-top: 75px;">
-        <p style="font-weight:bold;"> Si vous rencontrez des difficultés pour réserver du matériel, n'hésitez pas à contacter notre service d'assistance.
+        <p style="font-weight:bold;"> Si vous rencontrez des difficultés pour réserver du matériel, n'hésitez pas à <a href>contacter notre service d'assistance.</a>
         </p>
       </section>
     </main>

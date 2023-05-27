@@ -40,6 +40,13 @@ function afficherRoleNavigation($role)
         // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
     }
 }
+// Récupérer le rôle de l'utilisateur
+$role = $_SESSION['ID_role'];
+
+$estAdministrateur = false; // Par défaut, l'utilisateur n'est pas administrateur
+if ($role === '2') {
+    $estAdministrateur = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,14 +65,20 @@ function afficherRoleNavigation($role)
           <li><a href="a_SAE203.php">Accueil</a></li>
           <li><a href="reservation.php">Réserver</a></li>
           <li><a id="liste" href="liste.php">Matériel disponible</a></li>
+          <?php
+          // Afficher le lien "Ajouter du matériel" uniquement si l'utilisateur est un administrateur
+          if ($estAdministrateur) {
+              echo '<li><a href="ajoutmateriel.php">Ajouter du matériel</a></li>';
+          }
+          ?>
           <li><a href="reservation_liste.php">Mes reservations</a></li>
           <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
         </ul>
       </nav>
       <p class="role"><?php afficherRoleNavigation($role); ?></p>
     </header>
-
-    <h1>Liste des matériels</h1>
+<div>
+    <h1>Liste des matériels disponibles</h1>
 
     <table>
         <tr>
@@ -93,6 +106,7 @@ function afficherRoleNavigation($role)
             </tr>
         <?php } ?>
     </table>
+                </div>
     <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
     <footer>
       <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>

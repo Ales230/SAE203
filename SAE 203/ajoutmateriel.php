@@ -34,6 +34,15 @@ if (isset($_SESSION['error_message'])) {
     echo '<p class="error-message">' . $_SESSION['error_message'] . '</p>';
     unset($_SESSION['error_message']); // Supprimer le message d'erreur de la session
 }
+function afficherRoleNavigation($role)
+{
+    if ($role === '2') {
+        echo 'Connecté en tant que administrateur';
+    } elseif ($role === '1') {
+      echo 'Connecté en tant que étudiant';
+        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -46,22 +55,27 @@ if (isset($_SESSION['error_message'])) {
   <title>Ajout de nouveau matériel</title>
 </head>
 <body>
+  
 <header>
+
       <nav>
         <img src = "Ressources/logouniv.png">
         <ul>
-          <li><a href="a_adminSAE203.php">Accueil</a></li>
+          <li><a href="a_SAE203.php">Accueil</a></li>
           <li><a href="reservation.php">Réserver</a></li>
           
           <li><a href="liste.php">Matériel disponible</a></li>
+          <li><a id="ajout"href="ajoutmateriel.php">Ajouter du matériel</a></li>
           <li><a href="reservation_liste.php">Mes reservations</a></li>
-          <li><a id="ajout"href="ajoutmateriel.php">Ajout de matériel</a></li>
+          
           <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
 
         </ul>
       </nav>
+      <p class="role"><?php afficherRoleNavigation($role); ?></p>
     </header>
-  <h1>Ajout de nouveau matériel</h1>
+    <div class="container">
+  <h1>Formulaire d'ajout de matériel</h1>
   
   <form action="traitement_materiel.php" method="POST">
     <label for="nom">Nom :</label>
@@ -86,8 +100,10 @@ if (isset($_SESSION['error_message'])) {
     <br>
 
     <input type="submit" value="Ajouter">
+    <a id="back" href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
   </form>
-  <a id="back" href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+  
+</div>
   <footer>
       <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
     </footer>

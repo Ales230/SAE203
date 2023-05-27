@@ -44,7 +44,22 @@ if (isset($_GET['id'])) {
             header('Location: liste.php');
             exit();
         }
+// Récupérer le rôle de l'utilisateur
+$role = $_SESSION['ID_role'];
 
+$estAdministrateur = false; // Par défaut, l'utilisateur n'est pas administrateur
+if ($role === '2') {
+    $estAdministrateur = true;
+}
+function afficherRoleNavigation($role)
+        {
+            if ($role === '2') {
+                echo 'Connecté en tant que administrateur';
+            } elseif ($role === '1') {
+              echo 'Connecté en tant que étudiant';
+                // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
+            }
+        }
         ?>
 
         <!DOCTYPE html>
@@ -64,6 +79,12 @@ if (isset($_GET['id'])) {
           <li><a href="a_SAE203.php">Accueil</a></li>
           <li><a href="reservation.php">Réserver</a></li>
           <li><a id="liste" href="liste.php">Matériel disponible</a></li>
+          <?php
+          // Afficher le lien "Ajouter du matériel" uniquement si l'utilisateur est un administrateur
+          if ($estAdministrateur) {
+              echo '<li><a href="ajoutmateriel.php">Ajouter du matériel</a></li>';
+          }
+          ?>
           <li><a href="reservation_liste.php">Mes reservations</a></li>
           <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
         </ul>
@@ -72,7 +93,7 @@ if (isset($_GET['id'])) {
     </header>
     <div class="container">
             <h1>Supprimer le matériel</h1>
-
+            <form action="" method="POST">
             <p>Voulez-vous vraiment supprimer le matériel suivant :</p>
 
             <p>Nom : <?php echo $materiel['nom']; ?></p>
@@ -80,7 +101,7 @@ if (isset($_GET['id'])) {
             <p>Référence : <?php echo $materiel['reference']; ?></p>
             <p>Description : <?php echo $materiel['description']; ?></p>
 
-            <form action="" method="POST">
+            
                 <input type="submit" name="confirm" value="Confirmer la suppression">
             </form>
             <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
