@@ -40,7 +40,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
                     die();  
                 } elseif ($_SESSION['ID_role'] === '2') {
                     // Rediriger les utilisateurs ayant le rôle "étudiant" vers une autre page
-                    header('Location: a_adminSAE203.php');
+                    header('Location: a_SAE203.php');
                     die();  
                 } 
             } else {

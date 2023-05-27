@@ -113,7 +113,7 @@ function afficherRoleNavigation($role)
         <p>Statut de la demande : <?php echo $reservation['statut']; ?></p>
     <?php } ?>
 
-    <a href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
     <footer>
       <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
     </footer>

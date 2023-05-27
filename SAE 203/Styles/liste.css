@@ -17,7 +17,7 @@ th {
 }
 
 tr:hover {
-    background-color: #2ECC71;
+    background-color: lightgrey;
 }
 header {
     background-color: #0077b6;
@@ -237,9 +237,10 @@ header {
     line-height: 1.6;
   }
   a{
-    color:black;
+    color:red;
     font-weight:bold;
     transition:.5s;
+    text-decoration: none;
   }
   a:hover{
     color: #2ECC71;
@@ -249,9 +250,27 @@ header {
     height: 27px;
     float:left;
   }
-  #accueil{
+  #liste{
     color:#2ECC71;
   }
   .tm{
     font-weight:bold;
+  }
+  .role{
+    color:#ACAAAA;
+    line-height: 40px;
+  }
+  #back {
+    margin-left:750px;
+    color:#E239DA;
+    
+  }
+  #back:hover{
+    color: #2ECC71;
+  }
+  #modif{
+    color:#2ECC71;
+  }
+  #suppr{
+    color:red;
   }

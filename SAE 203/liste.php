@@ -30,6 +30,16 @@ $query = "SELECT * FROM materiel";
 $result = $bdd->query($query);
 $matériels = $result->fetchAll(PDO::FETCH_ASSOC);
 
+
+function afficherRoleNavigation($role)
+{
+    if ($role === '2') {
+        echo 'Connecté en tant que administrateur';
+    } elseif ($role === '1') {
+      echo 'Connecté en tant que étudiant';
+        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +56,13 @@ $matériels = $result->fetchAll(PDO::FETCH_ASSOC);
 <img src = "Ressources/logouniv.png">
 <ul>
           <li><a href="a_SAE203.php">Accueil</a></li>
-          <li><a id="reserver" href="reservation.php">Réserver</a></li>
-          <li><a href="liste.php">Matériel disponible</a></li>
+          <li><a href="reservation.php">Réserver</a></li>
+          <li><a id="liste" href="liste.php">Matériel disponible</a></li>
           <li><a href="reservation_liste.php">Mes reservations</a></li>
+          <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
         </ul>
       </nav>
+      <p class="role"><?php afficherRoleNavigation($role); ?></p>
     </header>
 
     <h1>Liste des matériels</h1>
@@ -74,14 +86,14 @@ $matériels = $result->fetchAll(PDO::FETCH_ASSOC);
                 <?php if ($role === '2') { ?> <!-- Vérifier si l'utilisateur a le rôle d'administrateur -->
                     <td>
                         <!-- Liens pour la modification et la suppression du matériel -->
-                        <a href="modification_materiel.php?id=<?php echo $matériel['ID_materiel']; ?>">Modifier</a>
-                        <a href="supprimer_materiel.php?id=<?php echo $matériel['ID_materiel']; ?>">Supprimer</a>
+                        <a id="modif"href="modification_materiel.php?id=<?php echo $matériel['ID_materiel']; ?>">Modifier</a>
+                        <a id="suppr"href="supprimer_materiel.php?id=<?php echo $matériel['ID_materiel']; ?>">Supprimer</a>
                     </td>
                 <?php } ?>
             </tr>
         <?php } ?>
     </table>
-    <a href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
     <footer>
       <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
     </footer>

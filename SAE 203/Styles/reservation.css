@@ -386,6 +386,7 @@ nav ul li a.active {
   }
 #back {
     margin-left:200px;
+    text-decoration: none;
 }
 #reserver{
   color:#2ECC71;
@@ -479,4 +480,8 @@ a{
 input[type="email"]:hover,
 input[type="password"]:hover{
 box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.role{
+  color:#ACAAAA;
+  line-height: 40px;
 }

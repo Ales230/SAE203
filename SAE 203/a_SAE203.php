@@ -33,6 +33,7 @@ function afficherRoleNavigation($role)
         // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

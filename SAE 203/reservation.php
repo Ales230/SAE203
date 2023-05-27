@@ -77,6 +77,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+function afficherRoleNavigation($role)
+{
+    if ($role === '2') {
+        echo 'Connecté en tant que administrateur';
+    } elseif ($role === '1') {
+      echo 'Connecté en tant que étudiant';
+        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -96,8 +105,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <li><a id="reserver" href="reservation.php">Réserver</a></li>
           <li><a href="liste.php">Matériel disponible</a></li>
           <li><a href="reservation_liste.php">Mes reservations</a></li>
+          <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
         </ul>
       </nav>
+      <p class="role"><?php afficherRoleNavigation($role); ?></p>
     </header>
     
 

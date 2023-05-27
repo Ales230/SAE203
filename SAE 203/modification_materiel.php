@@ -57,7 +57,15 @@ if (isset($_GET['id'])) {
             header('Location: liste.php');
             exit();
         }
-
+        function afficherRoleNavigation($role)
+        {
+            if ($role === '2') {
+                echo 'Connecté en tant que administrateur';
+            } elseif ($role === '1') {
+              echo 'Connecté en tant que étudiant';
+                // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
+            }
+        }
         ?>
 
 <!DOCTYPE html>
@@ -65,9 +73,24 @@ if (isset($_GET['id'])) {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="styles/modification_materiel.css">
             <title>Modifier le matériel</title>
         </head>
         <body>
+        <header>
+<nav>
+<img src = "Ressources/logouniv.png">
+<ul>
+          <li><a href="a_SAE203.php">Accueil</a></li>
+          <li><a href="reservation.php">Réserver</a></li>
+          <li><a id="liste" href="liste.php">Matériel disponible</a></li>
+          <li><a href="reservation_liste.php">Mes reservations</a></li>
+          <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
+        </ul>
+      </nav>
+      <p class="role"><?php afficherRoleNavigation($role); ?></p>
+    </header>
+    <div class="container">
             <h1>Modifier le matériel</h1>
 
             <form action="" method="POST">
@@ -76,7 +99,7 @@ if (isset($_GET['id'])) {
                 <br>
 
                 <label for="type">Type :</label>
-                <select id="type" name="type" required>
+                <select type="text" id="type" name="type" required>
                     <option value="Type 1" <?php if ($materiel['type'] === 'Type 1') echo 'selected'; ?>>Audio</option>
                     <option value="Type 2" <?php if ($materiel['type'] === 'Type 2') echo 'selected'; ?>>Video</option>
                 </select>
@@ -87,11 +110,16 @@ if (isset($_GET['id'])) {
                 <br>
 
                 <label for="description">Description :</label>
-                <textarea id="description" name="description" required><?php echo $materiel['description']; ?></textarea>
+                <textarea type="text" id="description" name="description" required><?php echo $materiel['description']; ?></textarea>
                 <br>
 
                 <input type="submit" value="Modifier">
             </form>
+            <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    </div>
+    <footer>
+      <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
+    </footer>
         </body>
         </html>
 

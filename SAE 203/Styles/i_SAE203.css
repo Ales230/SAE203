@@ -8,12 +8,12 @@ body {
 }
 .container {
   width: 500px !important;
-  margin: 400px !important auto;
+  margin: 400px !important;
   background-color:#212F3C;
-  padding: 20px !important;
+  padding: 20px;
   border-radius: 50px;
   box-shadow: 0 0 100px rgba(255, 255, 255, 0.5);
-  margin-top:50px;
+  margin-top:150px;
   opacity: 85%;
 }
 form {
