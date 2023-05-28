@@ -23,10 +23,11 @@ try {
 
 // Récupérer les réservations en fonction du rôle de l'utilisateur
 if ($_SESSION['ID_role'] === '2') {
-    $query = "SELECT * FROM reserve";
+    $query = $query = "SELECT reserve.ID_reservation, utilisateur.nom AS nom_utilisateur, materiel.nom AS nom_materiel, reserve.dateDebut, reserve.dateFin, reserve.statut FROM reserve JOIN utilisateur ON reserve.ID_utilisateur = utilisateur.ID_utilisateur JOIN materiel ON reserve.ID_materiel = materiel.ID_materiel WHERE reserve.statut IN ('en attente', 'acceptée', 'rejetée')";
+    ;
 } else {
     $id_utilisateur = $_SESSION['ID_utilisateur'];
-    $query = "SELECT * FROM reserve WHERE ID_utilisateur = :id_utilisateur";
+    $query = "SELECT reserve.ID_reservation, utilisateur.nom AS nom_utilisateur, materiel.nom AS nom_materiel, reserve.dateDebut, reserve.dateFin, reserve.statut FROM reserve JOIN utilisateur ON reserve.ID_utilisateur = utilisateur.ID_utilisateur JOIN materiel ON reserve.ID_materiel = materiel.ID_materiel WHERE reserve.ID_utilisateur = :id_utilisateur";
 }
 
 $stmt = $bdd->prepare($query);
@@ -53,6 +54,7 @@ $estAdministrateur = false; // Par défaut, l'utilisateur n'est pas administrate
 if ($role === '2') {
     $estAdministrateur = true;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -97,9 +99,8 @@ if ($role === '2') {
         <table>
             <thead>
                 <tr>
-                    <th>ID de réservation</th>
-                    <th>ID de l'utilisateur</th>
-                    <th>ID du matériel</th>
+                    <th>Nom de l'utilisateur</th>
+                    <th>Nom du matériel</th>
                     <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Statut</th>
@@ -110,9 +111,8 @@ if ($role === '2') {
                 <?php foreach ($reservations as $reservation) { ?>
                     <?php if ($reservation['statut'] === 'en attente') { ?>
                         <tr>
-                            <td><?php echo $reservation['ID_reservation']; ?></td>
-                            <td><?php echo $reservation['ID_utilisateur']; ?></td>
-                            <td><?php echo $reservation['ID_materiel']; ?></td>
+                            <td><?php echo $reservation['nom_utilisateur']; ?></td>
+                            <td><?php echo $reservation['nom_materiel']; ?></td>
                             <td><?php echo $reservation['dateDebut']; ?></td>
                             <td><?php echo $reservation['dateFin']; ?></td>
                             <td><?php echo $reservation['statut']; ?></td>
@@ -131,9 +131,8 @@ if ($role === '2') {
         <table>
             <thead>
                 <tr>
-                    <th>ID de réservation</th>
-                    <th>ID de l'utilisateur</th>
-                    <th>ID du matériel</th>
+                    <th>Nom de l'utilisateur</th>
+                    <th>Nom du matériel</th>
                     <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Statut</th>
@@ -144,9 +143,8 @@ if ($role === '2') {
                 <?php foreach ($reservations as $reservation) { ?>
                     <?php if ($reservation['statut'] !== 'en attente') { ?>
                         <tr>
-                            <td><?php echo $reservation['ID_reservation']; ?></td>
-                            <td><?php echo $reservation['ID_utilisateur']; ?></td>
-                            <td><?php echo $reservation['ID_materiel']; ?></td>
+                            <td><?php echo $reservation['nom_utilisateur']; ?></td>
+                            <td><?php echo $reservation['nom_materiel']; ?></td>
                             <td><?php echo $reservation['dateDebut']; ?></td>
                             <td><?php echo $reservation['dateFin']; ?></td>
                             <td><?php echo $reservation['statut']; ?></td>
@@ -163,8 +161,7 @@ if ($role === '2') {
         <table>
             <thead>
                 <tr>
-                    <th>ID de réservation</th>
-                    <th>ID du matériel</th>
+                    <th>Nom du matériel</th>
                     <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Statut</th>
@@ -174,8 +171,7 @@ if ($role === '2') {
             <tbody>
                 <?php foreach ($reservations as $reservation) { ?>
                     <tr>
-                        <td><?php echo $reservation['ID_reservation']; ?></td>
-                        <td><?php echo $reservation['ID_materiel']; ?></td>
+                        <td><?php echo $reservation['nom_materiel']; ?></td>
                         <td><?php echo $reservation['dateDebut']; ?></td>
                         <td><?php echo $reservation['dateFin']; ?></td>
                         <td><?php echo $reservation['statut']; ?></td>

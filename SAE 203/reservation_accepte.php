@@ -1,3 +1,6 @@
+<a href="javascript:history.go(-1)"id="back">Retour</a> <!-- Lien pour revenir à la page précédente -->
+<br>
+
 <?php
 session_start(); // Démarrage de la session
 
@@ -44,33 +47,22 @@ if ($role != '2') {
     exit();
 }
 
-// Vérifier si la réservation en cours d'approbation entre en conflit avec une réservation existante
-$query = "SELECT * FROM reserve WHERE ID_materiel = :id_materiel AND ID_reservation <> :id_reservation 
-          AND (dateDebut <= :dateFin AND dateFin >= :dateDebut)
-          AND (statut = 'acceptée' OR statut = 'en attente')";
-$stmt = $bdd->prepare($query);
-$stmt->bindParam(':id_materiel', $reservation['ID_materiel'], PDO::PARAM_INT);
-$stmt->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
-$stmt->bindParam(':dateDebut', $reservation['dateDebut'], PDO::PARAM_STR);
-$stmt->bindParam(':dateFin', $reservation['dateFin'], PDO::PARAM_STR);
-
-$stmt->execute();
-$conflictingReservation = $stmt->fetch(PDO::FETCH_ASSOC);
-
-// Vérifier s'il y a un conflit de dates avec une réservation existante
-if ($conflictingReservation) {
-    // Informer l'utilisateur du conflit de dates
-    echo "La demande de réservation entre en conflit avec une autre réservation existante.";
-    // Vous pouvez ajouter ici d'autres actions à effectuer en cas de conflit de dates
-} else {
-    // Mettre à jour le statut de la réservation
-    $query = "UPDATE reserve SET statut = 'acceptée' WHERE ID_reservation = :id_reservation";
+// Vérification des conflits de dates
+if ($role === '2' && $reservation['statut'] === 'en attente') {
+    $query = "SELECT ID_reservation FROM reserve WHERE ID_materiel = :id_materiel AND statut = 'acceptée' AND (dateDebut BETWEEN :dateDebut AND :dateFin OR dateFin BETWEEN :dateDebut AND :dateFin)";
     $stmt = $bdd->prepare($query);
-    $stmt->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
+    $stmt->bindParam(':id_materiel', $reservation['ID_materiel'], PDO::PARAM_INT);
+    $stmt->bindParam(':dateDebut', $reservation['dateDebut']);
+    $stmt->bindParam(':dateFin', $reservation['dateFin']);
     $stmt->execute();
-    
-    // Redirection vers la page de liste des réservations
-    header("Location: reservation_liste.php?id=$id_reservation");
-    exit();
+    $conflictingReservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if (!empty($conflictingReservations)) {
+        // Il y a un conflit de dates, afficher un message d'erreur et bloquer l'approbation de la demande
+        echo "Il y a un conflit de dates avec d'autres demandes déjà acceptées.";
+        // Vous pouvez ajouter ici d'autres actions à effectuer en cas de conflit
+        
+        exit();
+    }
 }
 ?>

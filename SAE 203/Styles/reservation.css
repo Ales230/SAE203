@@ -230,7 +230,6 @@ header {
 	justify-content: flex-end!important;
 	align-items: center!important;
   text-align: center!important;
-  position:fixed;
 }
 nav ul {
 	list-style: none;

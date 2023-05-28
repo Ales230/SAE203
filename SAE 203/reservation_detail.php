@@ -28,7 +28,7 @@ try {
 }
 
 // Récupérer les détails de la réservation
-$query = "SELECT * FROM reserve WHERE ID_reservation = :id_reservation";
+$query = $query = $query = $query = "SELECT reserve.ID_reservation, reserve.ID_utilisateur, reserve.ID_materiel, utilisateur.nom AS nom, materiel.nom AS nom_materiel, materiel.reference, materiel.type, materiel.description, reserve.dateDebut, reserve.dateFin, reserve.statut FROM reserve JOIN utilisateur ON reserve.ID_utilisateur = utilisateur.ID_utilisateur JOIN materiel ON reserve.ID_materiel = materiel.ID_materiel WHERE ID_reservation = :id_reservation";
 $stmt = $bdd->prepare($query);
 $stmt->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
 $stmt->execute();
@@ -36,7 +36,7 @@ $reservation = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Vérifier si la réservation existe
 if (!$reservation) {
-    header("Location: index.php"); // Redirection vers la page principale si la réservation n'existe pas
+    header("Location: reservation_liste.php"); // Redirection vers la page principale si la réservation n'existe pas
     exit();
 }
 
@@ -58,6 +58,8 @@ $estAdministrateur = false; // Par défaut, l'utilisateur n'est pas administrate
 if ($role === '2') {
     $estAdministrateur = true;
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -101,8 +103,28 @@ if ($role === '2') {
             <td><?php echo $reservation['ID_utilisateur']; ?></td>
         </tr>
         <tr>
+            <th>Nom de l'utilisateur</th>
+            <td><?php echo $reservation['nom']; ?></td>
+        </tr>
+        <tr>
             <th>ID du matériel</th>
             <td><?php echo $reservation['ID_materiel']; ?></td>
+        </tr>
+        <tr>
+            <th>Nom du matériel</th>
+            <td><?php echo $reservation['nom_materiel']; ?></td>
+        </tr>
+        <tr>
+            <th>Référence</th>
+            <td><?php echo $reservation['reference']; ?></td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td><?php echo $reservation['type']; ?></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><?php echo $reservation['description']; ?></td>
         </tr>
         <tr>
             <th>Date de début</th>
@@ -134,3 +156,4 @@ if ($role === '2') {
     </footer>
 </body>
 </html>
+
