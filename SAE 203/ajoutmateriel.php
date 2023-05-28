@@ -79,7 +79,7 @@ function afficherRoleNavigation($role)
   
   <form action="traitement_materiel.php" method="POST">
     <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" required autocomplete="on">
+    <input type="text" id="nom" name="nom" required autocomplete="off">
     <br>
 
     <label for="type">Type :</label>
