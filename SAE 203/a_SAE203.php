@@ -91,8 +91,8 @@ function afficherRoleNavigation($role)
           1. <a href="SAE203.php">Connectez-vous</a> à votre compte utilisateur.<br>
           <p style="margin-bottom: 20px;"> 2. <a href="liste.php">Consultez</a> la liste des matériels disponibles.<br>
           <p style="margin-bottom: 20px;"> 3. <a href="reservation.php">Sélectionnez</a> le matériel que vous souhaitez réserver.<br>
-          <p style="margin-bottom: 20px;"> 4. Choisissez la date et l'heure de la réservation.<br>
-          <p style="margin-bottom: 20px;"> 5. Validez votre réservation.
+          <p style="margin-bottom: 20px;"> 4. <a href="reservation.php">Choisissez</a> la date et l'heure de la réservation.<br>
+          <p style="margin-bottom: 20px;"> 5. <a href="reservation.php">Validez</a> votre réservation.
         </ul>
         <p>
         <p style="margin-top: 75px;">

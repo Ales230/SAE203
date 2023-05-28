@@ -47,6 +47,10 @@ $estAdministrateur = false; // Par défaut, l'utilisateur n'est pas administrate
 if ($role === '2') {
     $estAdministrateur = true;
 }
+$stmt = $bdd->prepare($query);
+$stmt->execute();
+$reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -83,9 +87,6 @@ if ($role === '2') {
     <table>
         <tr>
             <th>Nom</th>
-            <th>Type</th>
-            <th>Référence</th>
-            <th>Description</th>
             <?php if ($role === '2') { ?> <!-- Vérifier si l'utilisateur a le rôle d'administrateur -->
                 <th>Actions</th>
             <?php } ?>
@@ -93,13 +94,14 @@ if ($role === '2') {
         <?php foreach ($matériels as $matériel) { ?>
             <tr>
                 <td><?php echo $matériel['nom']; ?></td>
-                <td><?php echo $matériel['type']; ?></td>
-                <td><?php echo $matériel['reference']; ?></td>
-                <td><?php echo $matériel['description']; ?></td>
+                <td>
+                <a href="materiel_detail.php?id=<?php echo $matériel['ID_materiel']; ?>">Détails</a>
+                </td>
                 <?php if ($role === '2') { ?> <!-- Vérifier si l'utilisateur a le rôle d'administrateur -->
                     <td>
                         <!-- Liens pour la modification et la suppression du matériel -->
                         <a id="modif"href="modification_materiel.php?id=<?php echo $matériel['ID_materiel']; ?>">Modifier</a>
+                        <br>
                         <a id="suppr"href="supprimer_materiel.php?id=<?php echo $matériel['ID_materiel']; ?>">Supprimer</a>
                     </td>
                 <?php } ?>

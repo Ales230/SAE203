@@ -8,7 +8,7 @@
                         case 'password':
                         ?>
                             <div class="alert alert-danger">
-                                <strong>Erreur</strong> mot de passe incorrect
+                                <strong>Erreur</strong> email ou mot de passe incorrect
                             </div>
                         <?php
                         break;
@@ -16,7 +16,7 @@
                         case 'email':
                         ?>
                             <div class="alert alert-danger">
-                                <strong>Erreur</strong> email incorrect
+                                <strong>Erreur</strong> email ou mot de passe incorrect
                             </div>
                         <?php
                         break;
@@ -24,7 +24,7 @@
                         case 'already':
                         ?>
                             <div class="alert alert-danger">
-                                <strong>Erreur</strong> compte non existant
+                                <strong>Erreur</strong> email ou mot de passe incorrect
                             </div>
                         <?php
                         break;
