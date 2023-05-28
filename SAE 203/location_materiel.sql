@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 25 mai 2023 à 07:22
+-- Généré le : dim. 28 mai 2023 à 15:54
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -42,10 +42,15 @@ CREATE TABLE IF NOT EXISTS `materiel` (
 --
 
 INSERT INTO `materiel` (`ID_materiel`, `nom`, `reference`, `type`, `description`) VALUES
-(286, 'erey', '\'y\"\"sy\'', 'audio', 'ysey\'s'),
+(374529, 'Trépied', 'TRE2462', 'video', 'trépied'),
+(384649, 'Camera HD', 'CAM2819', 'video', 'Camera'),
+(396403, 'projecteur', 'PRO2810', 'video', 'Projecteur vidéo pour diffuser des présentations ou des vidéos.'),
 (464531, 'micro', 'HU2G27', 'audio', 'micro'),
-(610013, 'LESZEK', '723T732', 'audio', 'JDJZBZAD'),
-(816742, 'camera', 'R262G2', 'video', 'camera');
+(563610, 'Micro', 'RAZT718', 'audio', 'mic'),
+(593568, 'Microphone', 'MIC3820', 'audio', 'un micro'),
+(640303, 'Casqueeeeeeeeeeee', 'CAJ7281', 'Type 2', 'casque'),
+(816742, 'camera', 'R262G2', 'Autre type de matériel', 'camera'),
+(831731, 'rge', 'ezqgfzq', 'audio', 'gzeg');
 
 -- --------------------------------------------------------
 
@@ -64,26 +69,24 @@ CREATE TABLE IF NOT EXISTS `reserve` (
   PRIMARY KEY (`ID_reservation`),
   KEY `reserve_Materiel0_FK` (`ID_materiel`),
   KEY `ID_utilisateur` (`ID_utilisateur`,`ID_materiel`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `reserve`
 --
 
 INSERT INTO `reserve` (`ID_utilisateur`, `ID_materiel`, `dateDebut`, `dateFin`, `statut`, `ID_reservation`) VALUES
-(393546, 610013, '2021-12-27', '2021-12-28', NULL, 1),
-(655977, 610013, '2021-12-27', '2021-12-27', 'acceptee', 2),
-(393546, 610013, '2021-12-29', '2021-12-29', NULL, 3),
-(393546, 286, '2021-12-29', '2021-12-30', NULL, 4),
-(393546, 286, '1111-11-11', '1111-11-11', NULL, 5),
-(393546, 286, '2222-02-22', '2222-02-22', 'acceptée', 6),
-(393546, 286, '3333-03-31', '0333-03-31', 'rejetée', 7),
-(393546, 286, '4444-04-04', '4444-04-04', 'acceptée', 8),
-(393546, 286, '0000-00-00', '0000-00-00', 'rejetée', 9),
-(393546, 464531, '1111-11-11', '1111-11-11', 'acceptée', 10),
-(393546, 286, '6666-06-06', '6666-06-06', 'en attente', 11),
-(646739, 286, '3333-03-31', '0333-03-31', 'acceptée', 12),
-(393546, 286, '3333-03-31', '0333-03-31', 'acceptée', 13);
+(655977, 374529, '1111-11-11', '1111-11-11', 'acceptee', 15),
+(393546, 831731, '1212-12-12', '1212-12-13', 'acceptée', 16),
+(393546, 374529, '1212-12-12', '1212-12-12', 'rejetée', 17),
+(393546, 593568, '1111-11-11', '1111-11-11', 'acceptée', 18),
+(655977, 396403, '2023-11-11', '2023-11-12', 'acceptee', 19),
+(393546, 384649, '2023-11-11', '2023-11-12', 'acceptée', 20),
+(393546, 593568, '1111-11-11', '1111-11-12', 'en attente', 21),
+(393546, 593568, '1111-11-11', '1111-11-11', 'en attente', 22),
+(393546, 593568, '1111-11-11', '1111-11-11', 'en attente', 23),
+(393546, 593568, '1111-11-11', '1111-11-11', 'rejetée', 24),
+(393546, 593568, '1111-11-11', '1111-11-12', 'en attente', 25);
 
 -- --------------------------------------------------------
 
@@ -130,7 +133,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`ID_utilisateur`, `prenom`, `nom`, `email`, `datenaiss`, `password`, `ID_role`) VALUES
-(393546, 'b', 'b', 'gerardaoste@gmail.com', '1671-12-15', '$2y$12$wxmk.HiHy61At5N4r74qBeSXTuHveTLVNX1lDUOJMSEMezLMGdaD.', 1),
+(393546, 'b', 'th', 'gerardaoste@gmail.com', '1671-12-15', '$2y$12$wxmk.HiHy61At5N4r74qBeSXTuHveTLVNX1lDUOJMSEMezLMGdaD.', 1),
+(490833, 'zefze', 'zfzef', 'zefzf@zefz', '2222-02-12', '$2y$12$xPaVRJhS6bu1f1mbULtzneteHmpshj5/YfFWPbBBr5pHkTVJ2b3ke', 1),
 (646739, 'A', 'A', 'dvzghrec@euzzze.com', '0001-01-01', '$2y$12$GEL2BUpN2Cnu29os2BP1YOVhWBONWIn9NyZa5QOvdLlruAnEjyxC2', 1),
 (655977, 'test', 'test', 'admin@admin.com', '1000-10-10', '$2y$12$hfL5XEK36TGnt4mxh8xeA.prCcyY34ZSs3dAquNgqm/h4jnAajVn2', 2);
 
