@@ -113,8 +113,9 @@ if ($role === '2') {
 
                 <label for="type">Type :</label>
                 <select type="text" id="type" name="type" required>
-                    <option value="Type 1" <?php if ($materiel['type'] === 'Type 1') echo 'selected'; ?>>Audio</option>
-                    <option value="Type 2" <?php if ($materiel['type'] === 'Type 2') echo 'selected'; ?>>Video</option>
+                    <option value="Audio" <?php if ($materiel['type'] === 'Audio') echo 'selected'; ?>>Audio</option>
+                    <option value="Vidéo" <?php if ($materiel['type'] === 'Vidéo') echo 'selected'; ?>>Vidéo</option>
+                    <option value="Autre type de matériel" <?php if ($materiel['type'] === 'Autre type de matériel') echo 'selected'; ?>>Autre type de matériel</option>
                 </select>
                 <br>
 
