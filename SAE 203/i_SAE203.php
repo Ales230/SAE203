@@ -16,7 +16,7 @@
                         case 'password':
                         ?>
                             <div class="alert alert-danger">
-                                <strong>Erreur</strong> mot de passe différent
+                                <strong>Erreur</strong> email déjà existant
                             </div>
                         <?php
                         break;
@@ -34,14 +34,7 @@
                             <div class="alert alert-danger">
                                 <strong>Erreur</strong> email trop long
                             </div>
-                        <?php 
-                        break;
-
-                        case 'pseudo_length':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> pseudo trop long
-                            </div>
+                   
                         <?php 
                         case 'already':
                         ?>
@@ -56,7 +49,7 @@
 <html>
   <head>
     <title>Inscription</title>
-    <link rel="stylesheet" type="text/css" href="styles/i_SAE203.css"> 
+    <link rel="stylesheet" type="text/css" href="Styles/i_SAE203.css"> 
   </head>
   <body>
     <div class="container">

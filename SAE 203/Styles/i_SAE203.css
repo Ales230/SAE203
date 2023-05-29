@@ -13,7 +13,7 @@ body {
   padding: 20px;
   border-radius: 50px;
   box-shadow: 0 0 100px rgba(255, 255, 255, 0.5);
-  margin-top:150px;
+  margin-top:150px!important;
   opacity: 85%;
 }
 form {
