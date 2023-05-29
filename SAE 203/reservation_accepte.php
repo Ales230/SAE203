@@ -1,6 +1,37 @@
-<a href="javascript:history.go(-1)"id="back">Retour</a> <!-- Lien pour revenir à la page précédente -->
-<br>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection en cours...</title>
+    <script>
+    
+        function redirectWithCountdown(url, seconds) {
+            var countdown = document.getElementById('countdown');
+            countdown.textContent = seconds; 
 
+        
+            var timer = setInterval(function() {
+                seconds--;
+                countdown.textContent = seconds; 
+
+                
+                if (seconds <= 0) {
+                    clearInterval(timer); 
+                    window.location.href = url; 
+                }
+            }, 1000); 
+        }
+
+        
+      
+    </script>
+</head>
+<body>
+    <h1>Redirection en cours...</h1>
+    <p>Vous serez redirigé vers la page "reservation_liste.php" dans <span id="countdown"></span> secondes.</p>
+</body>
+</html>
 <?php
 session_start(); // Démarrage de la session
 
@@ -43,11 +74,10 @@ $role = $_SESSION['ID_role'];
 
 // Vérifier si l'utilisateur est un administrateur
 if ($role != '2') {
-    header("Location: SAE203.php"); // Redirection vers la page principale si l'utilisateur n'est pas un administrateur
+    header("Location: SAE203.php"); 
     exit();
 }
 
-// Vérification des conflits de dates
 if ($role === '2' && $reservation['statut'] === 'en attente') {
     $query = "SELECT ID_reservation FROM reserve WHERE ID_materiel = :id_materiel AND statut = 'acceptée' AND (dateDebut BETWEEN :dateDebut AND :dateFin OR dateFin BETWEEN :dateDebut AND :dateFin)";
     $stmt = $bdd->prepare($query);
@@ -58,11 +88,12 @@ if ($role === '2' && $reservation['statut'] === 'en attente') {
     $conflictingReservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (!empty($conflictingReservations)) {
-        // Il y a un conflit de dates, afficher un message d'erreur et bloquer l'approbation de la demande
         echo "Il y a un conflit de dates avec d'autres demandes déjà acceptées.";
-        // Vous pouvez ajouter ici d'autres actions à effectuer en cas de conflit
+        
         
         exit();
     }
 }
 ?>
+
+

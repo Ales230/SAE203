@@ -7,11 +7,6 @@ if (!isset($_SESSION['ID_role'])) {
     exit();
 }
 
-// Vérifier si l'ID de réservation est spécifié dans l'URL
-if (!isset($_GET['id'])) {
-    header("Location: SAE203.php"); // Redirection vers la page principale si l'ID de réservation n'est pas spécifié
-    exit();
-}
 
 // Récupérer l'ID de réservation depuis l'URL
 $id_reservation = $_GET['id'];
