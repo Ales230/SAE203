@@ -88,7 +88,6 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <tr>
             <th>Nom</th>
             <?php if ($role === '2') { ?> <!-- Vérifier si l'utilisateur a le rôle d'administrateur -->
-                <th>Actions</th>
             <?php } ?>
         </tr>
         <?php foreach ($matériels as $matériel) { ?>
