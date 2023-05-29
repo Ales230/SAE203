@@ -37,7 +37,6 @@ function afficherRoleNavigation($role)
         echo 'Connecté en tant que administrateur';
     } elseif ($role === '1') {
       echo 'Connecté en tant que étudiant';
-        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
     }
 }
 // Récupérer le rôle de l'utilisateur
@@ -70,7 +69,6 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
           <li><a href="reservation.php">Réserver</a></li>
           <li><a id="liste" href="liste.php">Matériel disponible</a></li>
           <?php
-          // Afficher le lien "Ajouter du matériel" uniquement si l'utilisateur est un administrateur
           if ($estAdministrateur) {
               echo '<li><a href="ajoutmateriel.php">Ajouter du matériel</a></li>';
           }
@@ -87,7 +85,7 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <table>
         <tr>
             <th>Nom</th>
-            <?php if ($role === '2') { ?> <!-- Vérifier si l'utilisateur a le rôle d'administrateur -->
+            <?php if ($role === '2') { ?> <!-- Vérifie si l'utilisateur a le rôle d'administrateur -->
             <?php } ?>
         </tr>
         <?php foreach ($matériels as $matériel) { ?>
@@ -96,9 +94,8 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td>
                 <a href="materiel_detail.php?id=<?php echo $matériel['ID_materiel']; ?>">Détails</a>
                 </td>
-                <?php if ($role === '2') { ?> <!-- Vérifier si l'utilisateur a le rôle d'administrateur -->
+                <?php if ($role === '2') { ?> <!-- Vérifie si l'utilisateur a le rôle d'administrateur -->
                     <td>
-                        <!-- Liens pour la modification et la suppression du matériel -->
                         <a id="modif"href="modification_materiel.php?id=<?php echo $matériel['ID_materiel']; ?>">Modifier</a>
                         <br>
                         <a id="suppr"href="supprimer_materiel.php?id=<?php echo $matériel['ID_materiel']; ?>">Supprimer</a>
@@ -108,7 +105,7 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php } ?>
     </table>
                 </div>
-    <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    <a id="back"href="javascript:history.go(-1)">Retour</a> 
     <footer>
       <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
     </footer>

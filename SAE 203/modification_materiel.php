@@ -40,10 +40,8 @@ if (isset($_GET['id'])) {
             $reference = $_POST['reference'];
             $description = $_POST['description'];
 
-            // Valider et traiter les données de modification du matériel
-            // ...
+        
 
-            // Exemple de mise à jour du matériel dans la base de données
             $query = "UPDATE materiel SET nom = :nom, type = :type, reference = :reference, description = :description WHERE ID_materiel = :id";
             $statement = $bdd->prepare($query);
             $statement->bindValue(':nom', $nom, PDO::PARAM_STR);
@@ -63,7 +61,6 @@ if (isset($_GET['id'])) {
                 echo 'Connecté en tant que administrateur';
             } elseif ($role === '1') {
               echo 'Connecté en tant que étudiant';
-                // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
             }
         }
         // Récupérer le rôle de l'utilisateur
@@ -129,7 +126,7 @@ if ($role === '2') {
 
                 <input type="submit" value="Modifier">
             </form>
-            <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+            <a id="back"href="javascript:history.go(-1)">Retour</a> 
     </div>
     <footer>
       <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>

@@ -22,7 +22,7 @@ try {
     die(print_r($e));
 }
 
-// Mettre à jour le statut de la réservation
+// Met à jour le statut de la réservation
 $query = "UPDATE reserve SET statut = 'rejetée' WHERE ID_reservation = :id_reservation";
 $stmt = $bdd->prepare($query);
 $stmt->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);

@@ -11,7 +11,6 @@ try {
     // Si les variables existent et qu'elles ne sont pas vides
     if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['datenaiss']) && !empty($_POST['password'])) 
     {
-        // Patch XSS
         $nom = htmlspecialchars($_POST['nom']);
         $prenom = htmlspecialchars($_POST['prenom']);
         $email = htmlspecialchars($_POST['email']);
@@ -33,12 +32,6 @@ try {
                             $password = password_hash($password, PASSWORD_BCRYPT, $cost);
                             
                             // On stock l'adresse IP
-                             /*
-                              ATTENTION
-                              Verifiez bien que le champs token est présent dans votre table utilisateurs, il a été rajouté APRÈS la vidéo
-                              le .sql est dispo pensez à l'importer ! 
-                              ATTENTION
-                            */
                             // On insère dans la base de données
                             $insert = $bdd->prepare('INSERT INTO utilisateur(ID_utilisateur, nom, prenom, email, datenaiss, password, ID_role) VALUES(FLOOR(RAND() * 1000000), :nom, :prenom, :email, :datenaiss, :password, 1)');
                             $insert->execute(array(

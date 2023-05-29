@@ -30,7 +30,6 @@ function afficherRoleNavigation($role)
         echo 'Connecté en tant que administrateur';
     } elseif ($role === '1') {
       echo 'Connecté en tant que étudiant';
-        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
     }
 }
 
@@ -57,7 +56,6 @@ function afficherRoleNavigation($role)
           <li><a href="reservation.php">Réserver</a></li>
           <li><a href="liste.php">Matériel disponible</a></li>
           <?php
-          // Afficher le lien "Ajouter du matériel" uniquement si l'utilisateur est un administrateur
           if ($estAdministrateur) {
               echo '<li><a href="ajoutmateriel.php">Ajouter du matériel</a></li>';
           }

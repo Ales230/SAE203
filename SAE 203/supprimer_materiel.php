@@ -57,7 +57,6 @@ function afficherRoleNavigation($role)
                 echo 'Connecté en tant que administrateur';
             } elseif ($role === '1') {
               echo 'Connecté en tant que étudiant';
-                // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
             }
         }
         ?>

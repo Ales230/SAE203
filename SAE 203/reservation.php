@@ -84,7 +84,6 @@ function afficherRoleNavigation($role)
         echo 'Connecté en tant que administrateur';
     } elseif ($role === '1') {
         echo 'Connecté en tant que étudiant';
-        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
     }
 }
 
@@ -153,7 +152,7 @@ if ($role === '2') {
         <br>
         <input type="submit" value="Réserver">
     </form>
-    <a id="back" href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    <a id="back" href="javascript:history.go(-1)">Retour</a> 
 </div>
 
 <footer>

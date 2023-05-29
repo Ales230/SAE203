@@ -60,9 +60,9 @@ echo "La demande de réservation a été enregistrée avec succès.";
 
 // Rediriger l'utilisateur vers la liste des réservations appropriée
 if ($role === 'Administrateur') {
-    header("Location: liste_reservations_admin.php");
+    header("Location: reservation_liste.php");
 } else {
-    header("Location: liste_reservations_etudiant.php");
+    header("Location: reservation_liste.php");
 }
 exit();
 ?>

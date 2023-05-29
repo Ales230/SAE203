@@ -44,7 +44,6 @@ function afficherRoleNavigation($role)
         echo 'Connecté en tant que administrateur';
     } elseif ($role === '1') {
       echo 'Connecté en tant que étudiant';
-        // Ajoutez ici d'autres éléments spécifiques aux étudiants si nécessaire
     }
 }
 // Récupérer le rôle de l'utilisateur
@@ -184,7 +183,7 @@ if ($role === '2') {
         </table>
     <?php } ?>
 
-    <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    <a id="back"href="javascript:history.go(-1)">Retour</a> 
     <footer>
       <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
     </footer>

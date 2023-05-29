@@ -100,7 +100,7 @@ function afficherRoleNavigation($role)
     <br>
 
     <input type="submit" value="Ajouter">
-    <a id="back" href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    <a id="back" href="javascript:history.go(-1)">Retour</a> 
   </form>
   
 </div>

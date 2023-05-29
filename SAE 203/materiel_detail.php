@@ -1,22 +1,18 @@
 <?php
-session_start(); // Start the session
+session_start(); 
 
-// Check if the user is logged in
 if (!isset($_SESSION['ID_role'])) {
-    header("Location: SAE203.php"); // Redirect to the login page
+    header("Location: SAE203.php"); 
     exit();
 }
 
-// Check if the reservation ID is specified in the URL
 if (!isset($_GET['id'])) {
-    header("Location: SAE203.php"); // Redirect to the main page if the reservation ID is not specified
+    header("Location: SAE203.php"); 
     exit();
 }
 
-// Get the reservation ID from the URL
 $id_materiel = $_GET['id'];
 
-// Connect to the database
 try {
     $bdd = new PDO(
         'mysql:host=localhost;dbname=location_materiel;charset=utf8',
@@ -27,14 +23,12 @@ try {
     die(print_r($e));
 }
 
-// Get the details of the reservation
 $query = "SELECT * FROM materiel WHERE ID_materiel = :id_materiel";
 $stmt = $bdd->prepare($query);
 $stmt->bindParam(':id_materiel', $id_materiel, PDO::PARAM_INT);
 $stmt->execute();
 $reservation = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Check the user's role
 $role = $_SESSION['ID_role'];
 
 function afficherRoleNavigation($role)
@@ -43,11 +37,10 @@ function afficherRoleNavigation($role)
         echo 'Connecté en tant qu\'administrateur';
     } elseif ($role === '1') {
         echo 'Connecté en tant qu\'étudiant';
-        // Add other elements specific to students if necessary
     }
 }
 
-$estAdministrateur = false; // By default, the user is not an administrator
+$estAdministrateur = false; 
 if ($role === '2') {
     $estAdministrateur = true;
 }
@@ -107,6 +100,6 @@ if ($role === '2') {
         </tr>
         
     </table>
-    <a id="back"href="javascript:history.go(-1)">Retour</a> <!-- Lien pour revenir à la page précédente -->
+    <a id="back"href="javascript:history.go(-1)">Retour</a> 
 
 </div>
