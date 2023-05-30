@@ -100,9 +100,9 @@ function afficherRoleNavigation($role)
     <br>
 
     <input type="submit" value="Ajouter">
-    <a id="back" href="javascript:history.go(-1)">Retour</a> 
+    
   </form>
-  
+  <a id="back" href="javascript:history.go(-1)">Retour</a>
 </div>
   <footer>
       <p>Université Gustave Eiffel - Emprunt de matériel audiovisuel - Tous droits réservés</p>
