@@ -61,7 +61,7 @@ if ($role === '2') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/reservation_liste.css" />
+    <link rel="stylesheet" href="Styles/reservation_liste.css" />
     <title>Liste des réservations</title>
 </head>
 <body>

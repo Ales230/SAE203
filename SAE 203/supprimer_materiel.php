@@ -66,7 +66,7 @@ function afficherRoleNavigation($role)
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" type="text/css" href="styles/supprimer_materiel.css">
+            <link rel="stylesheet" type="text/css" href="Styles/supprimer_materiel.css">
             <title>Supprimer le matériel</title>
         </head>
         <body>

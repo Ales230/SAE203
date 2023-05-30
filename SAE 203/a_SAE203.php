@@ -40,7 +40,7 @@ function afficherRoleNavigation($role)
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="styles/a_SAE203.css" />
+    <link rel="stylesheet" href="Styles/a_SAE203.css" />
     <title>Université Gustave Eiffel : Emprunt de matériel audiovisuel</title>
     <link rel="stylesheet" integrity="sha512-KXe4Y+xx4msPQsYm0fZJgWK+O1SbHUCRSBxTiyJXnwLu0Nkf+zcYvJ/d1N3+vq3H8WtMk33t/9gJxBzXcvL//w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
