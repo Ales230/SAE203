@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 30 mai 2023 à 18:56
+-- Généré le : mar. 30 mai 2023 à 20:37
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -74,7 +74,6 @@ CREATE TABLE IF NOT EXISTS `reserve` (
 
 INSERT INTO `reserve` (`ID_utilisateur`, `ID_materiel`, `dateDebut`, `dateFin`, `statut`, `ID_reservation`) VALUES
 (393546, 374529, '1212-12-12', '1212-12-12', 'rejetée', 17),
-(655977, 396403, '2023-11-11', '2023-11-12', 'acceptee', 19),
 (393546, 384649, '2023-11-11', '2023-11-12', 'acceptée', 20),
 (393546, 593568, '1111-11-11', '1111-11-11', 'acceptée', 22),
 (393546, 374529, '1211-12-12', '1221-12-12', 'acceptée', 28),
