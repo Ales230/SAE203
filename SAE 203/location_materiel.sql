@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 28 mai 2023 à 15:54
+-- Généré le : mar. 30 mai 2023 à 18:56
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -42,15 +42,12 @@ CREATE TABLE IF NOT EXISTS `materiel` (
 --
 
 INSERT INTO `materiel` (`ID_materiel`, `nom`, `reference`, `type`, `description`) VALUES
-(374529, 'Trépied', 'TRE2462', 'video', 'trépied'),
+(374529, 'Trépied', 'TRE2462', 'Vidéo', 'trépied'),
 (384649, 'Camera HD', 'CAM2819', 'video', 'Camera'),
 (396403, 'projecteur', 'PRO2810', 'video', 'Projecteur vidéo pour diffuser des présentations ou des vidéos.'),
 (464531, 'micro', 'HU2G27', 'audio', 'micro'),
 (563610, 'Micro', 'RAZT718', 'audio', 'mic'),
-(593568, 'Microphone', 'MIC3820', 'audio', 'un micro'),
-(640303, 'Casqueeeeeeeeeeee', 'CAJ7281', 'Type 2', 'casque'),
-(816742, 'camera', 'R262G2', 'Autre type de matériel', 'camera'),
-(831731, 'rge', 'ezqgfzq', 'audio', 'gzeg');
+(593568, 'Microphone', 'MIC3820', 'audio', 'un micro');
 
 -- --------------------------------------------------------
 
@@ -69,24 +66,22 @@ CREATE TABLE IF NOT EXISTS `reserve` (
   PRIMARY KEY (`ID_reservation`),
   KEY `reserve_Materiel0_FK` (`ID_materiel`),
   KEY `ID_utilisateur` (`ID_utilisateur`,`ID_materiel`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `reserve`
 --
 
 INSERT INTO `reserve` (`ID_utilisateur`, `ID_materiel`, `dateDebut`, `dateFin`, `statut`, `ID_reservation`) VALUES
-(655977, 374529, '1111-11-11', '1111-11-11', 'acceptee', 15),
-(393546, 831731, '1212-12-12', '1212-12-13', 'acceptée', 16),
 (393546, 374529, '1212-12-12', '1212-12-12', 'rejetée', 17),
-(393546, 593568, '1111-11-11', '1111-11-11', 'acceptée', 18),
 (655977, 396403, '2023-11-11', '2023-11-12', 'acceptee', 19),
 (393546, 384649, '2023-11-11', '2023-11-12', 'acceptée', 20),
-(393546, 593568, '1111-11-11', '1111-11-12', 'en attente', 21),
-(393546, 593568, '1111-11-11', '1111-11-11', 'en attente', 22),
-(393546, 593568, '1111-11-11', '1111-11-11', 'en attente', 23),
-(393546, 593568, '1111-11-11', '1111-11-11', 'rejetée', 24),
-(393546, 593568, '1111-11-11', '1111-11-12', 'en attente', 25);
+(393546, 593568, '1111-11-11', '1111-11-11', 'acceptée', 22),
+(393546, 374529, '1211-12-12', '1221-12-12', 'acceptée', 28),
+(393546, 396403, '3311-03-21', '0131-03-13', 'acceptée', 32),
+(393546, 464531, '1111-11-11', '1111-11-11', 'acceptée', 33),
+(393546, 396403, '1111-11-11', '1111-11-11', 'acceptée', 34),
+(393546, 396403, '0000-00-00', '1211-12-12', 'rejetée', 35);
 
 -- --------------------------------------------------------
 
@@ -133,6 +128,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`ID_utilisateur`, `prenom`, `nom`, `email`, `datenaiss`, `password`, `ID_role`) VALUES
+(71875, 'g', 'M.', 'zdzjad@zdah', '1212-12-12', '$2y$12$sGZs//c70bRXwJIeiXb05Ob1oRKCS.rf5L8ARFsGPj9azjCTrJF6G', 1),
+(118216, 'zdz', 'dazd', 'zayda@zhjzda', '1111-11-11', '$2y$12$xH0eb9F8nA/wsUo8jvzDXuyiJ9ihI8ZM0/zmEFTJkRH.65VWhrCXi', 1),
 (393546, 'b', 'th', 'gerardaoste@gmail.com', '1671-12-15', '$2y$12$wxmk.HiHy61At5N4r74qBeSXTuHveTLVNX1lDUOJMSEMezLMGdaD.', 1),
 (490833, 'zefze', 'zfzef', 'zefzf@zefz', '2222-02-12', '$2y$12$xPaVRJhS6bu1f1mbULtzneteHmpshj5/YfFWPbBBr5pHkTVJ2b3ke', 1),
 (646739, 'A', 'A', 'dvzghrec@euzzze.com', '0001-01-01', '$2y$12$GEL2BUpN2Cnu29os2BP1YOVhWBONWIn9NyZa5QOvdLlruAnEjyxC2', 1),
@@ -146,7 +143,8 @@ INSERT INTO `utilisateur` (`ID_utilisateur`, `prenom`, `nom`, `email`, `datenais
 -- Contraintes pour la table `reserve`
 --
 ALTER TABLE `reserve`
-  ADD CONSTRAINT `reserve_Materiel0_FK` FOREIGN KEY (`ID_materiel`) REFERENCES `materiel` (`ID_materiel`),
+  ADD CONSTRAINT `reserve_ibfk_1` FOREIGN KEY (`ID_materiel`) REFERENCES `materiel` (`ID_materiel`) ON DELETE CASCADE,
+  ADD CONSTRAINT `reserve_Materiel1_FK` FOREIGN KEY (`ID_materiel`) REFERENCES `materiel` (`ID_materiel`) ON DELETE CASCADE,
   ADD CONSTRAINT `reserve_utilisateur_FK` FOREIGN KEY (`ID_utilisateur`) REFERENCES `utilisateur` (`ID_utilisateur`);
 
 --
