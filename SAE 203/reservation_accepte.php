@@ -22,7 +22,12 @@
                 }
             }, 1000); 
         }
-
+ // Call the redirectWithCountdown function when the page loads
+ window.onload = function() {
+            var redirectUrl = "reservation_detail.php"; // Change this to the actual URL of the reservation_accepte page
+            var countdownSeconds = 6; // Set the countdown duration in seconds
+            redirectWithCountdown(redirectUrl, countdownSeconds);
+        };
         
       
     </script>
