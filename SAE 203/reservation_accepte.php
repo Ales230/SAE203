@@ -5,38 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirection en cours...</title>
     <script>
-    
+        // Function to redirect after a specified time
         function redirectWithCountdown(url, seconds) {
             var countdown = document.getElementById('countdown');
-            countdown.textContent = seconds; 
+            countdown.textContent = seconds; // Display initial countdown value
 
-        
+            // Update countdown every second
             var timer = setInterval(function() {
                 seconds--;
-                countdown.textContent = seconds; 
+                countdown.textContent = seconds; // Update countdown value
 
-                
+                // Redirect when countdown reaches 0
                 if (seconds <= 0) {
-                    clearInterval(timer); 
-                    window.location.href = url; 
+                    clearInterval(timer); // Stop the countdown
+                    window.location.href = url; // Redirect to the specified URL
                 }
-            }, 1000); 
+            }, 1000); // 1000 milliseconds = 1 second
         }
- // Call the redirectWithCountdown function when the page loads
- window.onload = function() {
+
+        // Call the redirectWithCountdown function when the page loads
+        window.onload = function() {
             var redirectUrl = "reservation_detail.php"; // Change this to the actual URL of the reservation_accepte page
-            var countdownSeconds = 6; // Set the countdown duration in seconds
+            var countdownSeconds = 5; // Set the countdown duration in seconds
             redirectWithCountdown(redirectUrl, countdownSeconds);
         };
-        
-      
     </script>
 </head>
 <body>
     <h1>Redirection en cours...</h1>
-    <p>Vous serez redirigé vers la page "reservation_liste.php" dans <span id="countdown"></span> secondes.</p>
+    <p>Vous serez redirigé vers la page "reservation_accepte" dans <span id="countdown"></span> secondes.</p>
 </body>
 </html>
+<a href="reservation_detail.php">Retour</a>
+<br>
 <?php
 session_start(); // Démarrage de la session
 
@@ -73,7 +74,6 @@ $stmt->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
 $stmt->execute();
 $reservation = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
 // Vérifier le rôle de l'utilisateur
 $role = $_SESSION['ID_role'];
 
@@ -83,7 +83,7 @@ if ($role != '2') {
     exit();
 }
 
-if ($role === '2' && $reservation['statut'] === 'en attente') {
+if ($reservation['statut'] == 'en attente') {
     $query = "SELECT ID_reservation FROM reserve WHERE ID_materiel = :id_materiel AND statut = 'acceptée' AND (dateDebut BETWEEN :dateDebut AND :dateFin OR dateFin BETWEEN :dateDebut AND :dateFin)";
     $stmt = $bdd->prepare($query);
     $stmt->bindParam(':id_materiel', $reservation['ID_materiel'], PDO::PARAM_INT);
@@ -94,11 +94,21 @@ if ($role === '2' && $reservation['statut'] === 'en attente') {
 
     if (!empty($conflictingReservations)) {
         echo "Il y a un conflit de dates avec d'autres demandes déjà acceptées.";
-        
-        
+        exit();
+    } else {
+        $query = "UPDATE reserve SET statut = 'acceptée' WHERE ID_reservation = :id_reservation";
+        $stmt = $bdd->prepare($query);
+        $stmt->bindParam(':id_reservation', $id_reservation, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Redirection vers la page de détails de la réservation
+        header("Location: reservation_liste.php?id=$id_reservation");
         exit();
     }
+} else {
+    // Handle the case when the reservation is not in 'en attente' status
+    echo "La réservation n'est pas en attente d'approbation.";
+    exit();
 }
 ?>
-
 
